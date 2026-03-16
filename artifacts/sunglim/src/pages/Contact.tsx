@@ -77,8 +77,8 @@ export default function Contact() {
                 
                 <div className="space-y-8">
                   <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-                    <h3 className="text-xl font-bold text-primary mb-4">서울 본사 / 매장</h3>
-                    <p className="text-foreground font-medium mb-2">서울특별시 은평구 역촌동 34</p>
+                    <h3 className="text-xl font-bold text-primary mb-4">본사</h3>
+                    <p className="text-foreground font-medium mb-2">경기도 의정부시 오목로225번길 105. 604호 (민락동)</p>
                     <div className="w-full h-48 bg-muted rounded-xl mt-4 relative overflow-hidden group">
                       {/* Fake Map using Unsplash generic map image for visual placeholder */}
                       <img 
@@ -93,8 +93,8 @@ export default function Contact() {
                   </div>
 
                   <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
-                    <h3 className="text-xl font-bold text-primary mb-4">경기 물류창고</h3>
-                    <p className="text-foreground font-medium mb-2">경기도 고양시 덕양구 행신동 46-3</p>
+                    <h3 className="text-xl font-bold text-primary mb-4">공장</h3>
+                    <p className="text-foreground font-medium mb-2">경기도 양주시 광적면 현석로 58-20</p>
                     <div className="w-full h-48 bg-muted rounded-xl mt-4 relative overflow-hidden group">
                        <img 
                         src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80" 
@@ -119,7 +119,7 @@ export default function Contact() {
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">전화 번호</p>
                       <p className="font-bold text-lg">02-766-1496</p>
-                      <p className="text-sm text-muted-foreground">FAX: 02-383-5183</p>
+                      <p className="text-sm text-muted-foreground">FAX: 02-765-4602</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -128,7 +128,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">운영 시간</p>
-                      <p className="font-bold">평일 09:00 - 18:00</p>
+                      <p className="font-bold">평일 09:00 - 16:30</p>
                       <p className="text-sm text-muted-foreground">주말 및 공휴일 휴무</p>
                     </div>
                   </div>

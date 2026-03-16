@@ -37,18 +37,18 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-6">오시는 길 & 연락처</h4>
             <div className="space-y-4 text-sm">
               <div className="flex items-start gap-3">
-                <span className="font-semibold text-white min-w-[60px]">본사/매장</span>
-                <span className="text-white/70">서울특별시 은평구 역촌동 34</span>
+                <span className="font-semibold text-white min-w-[60px]">본사</span>
+                <span className="text-white/70">경기도 의정부시 오목로225번길 105. 604호 (민락동)</span>
               </div>
               <div className="flex items-start gap-3">
-                <span className="font-semibold text-white min-w-[60px]">창고</span>
-                <span className="text-white/70">경기도 고양시 덕양구 행신동 46-3</span>
+                <span className="font-semibold text-white min-w-[60px]">공장</span>
+                <span className="text-white/70">경기도 양주시 광적면 현석로 58-20</span>
               </div>
               <div className="flex items-start gap-3">
                 <span className="font-semibold text-white min-w-[60px]">연락처</span>
                 <span className="text-white/70">
                   TEL: 02-766-1496<br />
-                  FAX: 02-383-5183
+                  FAX: 02-765-4602
                 </span>
               </div>
             </div>
