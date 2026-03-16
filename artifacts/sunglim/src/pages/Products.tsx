@@ -9,8 +9,8 @@ const MOCK_PRODUCTS = [
   { id: 2, name: "초등 과학 실험 키트", category: "teaching", price: "문의요망", image: "student-desk.jpg" },
   { id: 3, name: "프리미엄 무지 노트 (10권 세트)", category: "stationery", price: "문의요망", image: "classroom-chair.jpg" },
   { id: 4, name: "전문가용 색연필 세트", category: "stationery", price: "문의요망", image: "classroom-chair.jpg" },
-  { id: 5, name: "학교 체육용 농구공", category: "sports", price: "문의요망", image: "sports-equip.png" },
-  { id: 6, name: "안전 뜀틀 세트", category: "sports", price: "문의요망", image: "sports-equip.png" },
+  { id: 5, name: "학교 체육용 농구공", category: "sports", price: "문의요망", image: "height-desk.jpg" },
+  { id: 6, name: "안전 뜀틀 세트", category: "sports", price: "문의요망", image: "height-desk.jpg" },
   { id: 9, name: "수학 도형 학습기", category: "teaching", price: "문의요망", image: "student-desk.jpg" },
 ];
 

@@ -21,7 +21,7 @@ export default function Home() {
       color: "bg-emerald-50 text-emerald-600",
       link: "/products?category=stationery",
       image: `${import.meta.env.BASE_URL}images/classroom-chair.jpg`,
-      featured: false,
+      featured: true,
     },
     {
       title: "키높이책상",
@@ -29,8 +29,8 @@ export default function Home() {
       icon: Dumbbell,
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
-      image: `${import.meta.env.BASE_URL}images/sports-equip.png`,
-      featured: false,
+      image: `${import.meta.env.BASE_URL}images/height-desk.jpg`,
+      featured: true,
     },
   ];
 
