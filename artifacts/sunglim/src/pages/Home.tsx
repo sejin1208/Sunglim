@@ -53,15 +53,14 @@ export default function Home() {
               transition={{ duration: 0.7 }}
             >
               <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-sm tracking-wider mb-6">
-                SINCE 1990
+                SINCE 2000
               </span>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
                 미래를 키우는<br />
                 <span className="text-gradient">바른 교육 환경</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-                (주)성림교구는 학교, 유치원, 교육기관에 필요한 모든 교구와 가구를 
-                최고의 품질로 공급하며 대한민국의 교육 발전과 함께 성장해왔습니다.
+                전국 초등, 중등, 고등학교에서 필요한 학생용책걸상을 최고의 품질로 공급하며 대한민국의 교육환경 발전과 함께 성장해왔습니다.
               </p>
               
               <div className="flex flex-wrap gap-4">
@@ -89,9 +88,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">주요 취급 품목</h2>
-            <p className="text-muted-foreground text-lg">
-              기초 교구부터 전문 체육 용품까지, 교육 현장에 필요한 모든 것을 원스톱으로 제공합니다.
-            </p>
+            <p className="text-muted-foreground text-lg"></p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
