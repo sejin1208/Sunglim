@@ -86,7 +86,7 @@ export function Navbar() {
             <div className="hidden md:flex items-center gap-4">
               <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground bg-secondary/50 px-3 py-1.5 rounded-full">
                 <Phone className="w-4 h-4 text-primary" />
-                <span>02-383-5181</span>
+                <span>02-766-1496</span>
               </div>
             </div>
 
@@ -130,9 +130,9 @@ export function Navbar() {
               
               <div className="mt-auto pt-6 border-t border-border">
                 <p className="text-sm text-muted-foreground mb-2">고객상담센터</p>
-                <a href="tel:02-383-5181" className="flex items-center gap-3 text-xl font-bold text-primary">
+                <a href="tel:02-766-1496" className="flex items-center gap-3 text-xl font-bold text-primary">
                   <Phone className="w-6 h-6" />
-                  02-383-5181
+                  02-766-1496
                 </a>
               </div>
             </nav>

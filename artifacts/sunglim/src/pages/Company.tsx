@@ -82,14 +82,14 @@ export default function Company() {
                   저희 성림교구는 창립 이래 오직 '교육 환경 개선'이라는 한 길만을 걸어오며, 학교 및 교육기관에 필요한 최고 품질의 교재, 교구, 학용품, 가구류를 공급해왔습니다. 
                 </p>
                 <p>
-                  선생님들께서 가르침에만 전념하실 수 있도록, 그리고 우리 아이들이 더 안전하고 쾌적한 환경에서 꿈을 키울 수 있도록 돕는 것이 저희의 사명이자 기쁨입니다.
+                  우리 아이들이 더 안전하고 쾌적한 환경에서 꿈을 키울 수 있도록 돕는 것이 저희의 사명이자 기쁨입니다.
                 </p>
                 <p>
                   앞으로도 변함없는 정직함과 성실함으로 고객 여러분의 믿음에 보답하는 기업이 되겠습니다. 감사합니다.
                 </p>
               </div>
               <div className="pt-6 mt-6 border-t border-border">
-                <p className="font-bold text-lg text-foreground">(주)성림교구 대표이사</p>
+                <p className="font-bold text-lg text-foreground">(주)성림교구 대표이사 류성훈</p>
               </div>
             </motion.div>
           </div>

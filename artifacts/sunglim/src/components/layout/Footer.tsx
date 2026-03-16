@@ -47,7 +47,7 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <span className="font-semibold text-white min-w-[60px]">연락처</span>
                 <span className="text-white/70">
-                  TEL: 02-383-5181, 02-383-5182<br />
+                  TEL: 02-766-1496<br />
                   FAX: 02-383-5183
                 </span>
               </div>

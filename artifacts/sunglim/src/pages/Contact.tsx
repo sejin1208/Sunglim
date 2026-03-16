@@ -118,7 +118,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground mb-1">전화 번호</p>
-                      <p className="font-bold text-lg">02-383-5181~2</p>
+                      <p className="font-bold text-lg">02-766-1496</p>
                       <p className="text-sm text-muted-foreground">FAX: 02-383-5183</p>
                     </div>
                   </div>
