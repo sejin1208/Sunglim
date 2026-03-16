@@ -5,6 +5,7 @@ import { Search } from "lucide-react";
 
 // Mock Product Data
 const MOCK_PRODUCTS = [
+  { id: 10, name: "친환경 높낮이조절형 강화유리 책상", category: "teaching", price: "70,500원", image: "SLD-1772.jpg", model: "SLD-1772", specs: "650×450×580~760mm" },
   { id: 1, name: "창의력 원목 블록 세트", category: "teaching", price: "품절/문의", image: "student-desk.jpg" },
   { id: 2, name: "초등 과학 실험 키트", category: "teaching", price: "문의요망", image: "student-desk.jpg" },
   { id: 3, name: "프리미엄 무지 노트 (10권 세트)", category: "stationery", price: "문의요망", image: "classroom-chair.jpg" },
@@ -108,9 +109,15 @@ export default function Products() {
                       <span className="text-xs font-bold text-primary/70 uppercase tracking-wider mb-2 block">
                         {CATEGORIES.find(c => c.id === product.category)?.name}
                       </span>
-                      <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-1">{product.name}</h3>
+                      <h3 className="font-bold text-lg mb-1 text-foreground line-clamp-2">{product.name}</h3>
+                      {'model' in product && product.model && (
+                        <p className="text-xs text-muted-foreground mb-0.5">모델명: {product.model}</p>
+                      )}
+                      {'specs' in product && product.specs && (
+                        <p className="text-xs text-muted-foreground">규격: {product.specs}</p>
+                      )}
                       <div className="flex items-center justify-between mt-4">
-                        <span className="text-muted-foreground font-medium">{product.price}</span>
+                        <span className="text-primary font-bold">{product.price}</span>
                         <button className="text-sm font-semibold text-primary hover:text-blue-700 bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-lg transition-colors">
                           문의하기
                         </button>
