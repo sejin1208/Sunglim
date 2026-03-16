@@ -1,42 +1,34 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, PenTool, Dumbbell, Monitor } from "lucide-react";
+import { ArrowRight, BookOpen, PenTool, Dumbbell } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 
 export default function Home() {
   const categories = [
     {
-      title: "교구/교재",
-      description: "창의력과 사고력을 키워주는 다양한 교육용 교구",
+      title: "학생용책상",
+      description: "학생들의 학습 환경을 위한 다양한 학생용 책상",
       icon: BookOpen,
       color: "bg-blue-50 text-blue-600",
       link: "/products?category=teaching",
       image: `${import.meta.env.BASE_URL}images/teaching-materials.png`
     },
     {
-      title: "학용품",
-      description: "학교 생활에 필수적인 고품질 학용품 및 문구류",
+      title: "교실용걸상",
+      description: "바른 자세를 도와주는 튼튼한 교실용 걸상",
       icon: PenTool,
       color: "bg-emerald-50 text-emerald-600",
       link: "/products?category=stationery",
       image: `${import.meta.env.BASE_URL}images/stationery.png`
     },
     {
-      title: "체육용품",
-      description: "안전하고 튼튼한 학교 체육 수업용 스포츠 용품",
+      title: "키높이책상",
+      description: "성장기 학생에게 맞춘 높이 조절 가능한 키높이책상",
       icon: Dumbbell,
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
       image: `${import.meta.env.BASE_URL}images/sports-equip.png`
     },
-    {
-      title: "학교가구",
-      description: "바른 자세를 위한 인체공학적 책상 및 의자",
-      icon: Monitor,
-      color: "bg-indigo-50 text-indigo-600",
-      link: "/products?category=furniture",
-      image: `${import.meta.env.BASE_URL}images/school-furniture.png`
-    }
   ];
 
   return (

@@ -11,17 +11,14 @@ const MOCK_PRODUCTS = [
   { id: 4, name: "전문가용 색연필 세트", category: "stationery", price: "문의요망", image: "stationery.png" },
   { id: 5, name: "학교 체육용 농구공", category: "sports", price: "문의요망", image: "sports-equip.png" },
   { id: 6, name: "안전 뜀틀 세트", category: "sports", price: "문의요망", image: "sports-equip.png" },
-  { id: 7, name: "인체공학 학생용 책상", category: "furniture", price: "문의요망", image: "school-furniture.png" },
-  { id: 8, name: "높이조절형 교사의자", category: "furniture", price: "문의요망", image: "school-furniture.png" },
   { id: 9, name: "수학 도형 학습기", category: "teaching", price: "문의요망", image: "teaching-materials.png" },
 ];
 
 const CATEGORIES = [
   { id: "all", name: "전체보기" },
-  { id: "teaching", name: "교구/교재" },
-  { id: "stationery", name: "학용품" },
-  { id: "sports", name: "체육용품" },
-  { id: "furniture", name: "학교가구" },
+  { id: "teaching", name: "학생용책상" },
+  { id: "stationery", name: "교실용걸상" },
+  { id: "sports", name: "키높이책상" },
 ];
 
 export default function Products() {
