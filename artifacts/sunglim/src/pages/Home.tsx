@@ -7,11 +7,12 @@ export default function Home() {
   const categories = [
     {
       title: "학생용책상",
-      description: "학생들의 학습 환경을 위한 다양한 학생용 책상",
+      description: "성장기 학생의 체형에 맞춘 높이 조절형 프리미엄 학생용 책상",
       icon: BookOpen,
       color: "bg-blue-50 text-blue-600",
       link: "/products?category=teaching",
-      image: `${import.meta.env.BASE_URL}images/teaching-materials.png`
+      image: `${import.meta.env.BASE_URL}images/student-desk.jpg`,
+      featured: true,
     },
     {
       title: "교실용걸상",
@@ -19,7 +20,8 @@ export default function Home() {
       icon: PenTool,
       color: "bg-emerald-50 text-emerald-600",
       link: "/products?category=stationery",
-      image: `${import.meta.env.BASE_URL}images/stationery.png`
+      image: `${import.meta.env.BASE_URL}images/stationery.png`,
+      featured: false,
     },
     {
       title: "키높이책상",
@@ -27,7 +29,8 @@ export default function Home() {
       icon: Dumbbell,
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
-      image: `${import.meta.env.BASE_URL}images/sports-equip.png`
+      image: `${import.meta.env.BASE_URL}images/sports-equip.png`,
+      featured: false,
     },
   ];
 
@@ -99,21 +102,36 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group relative bg-card rounded-3xl overflow-hidden border border-border shadow-subtle hover:shadow-hover transition-all duration-500"
+                className={`group relative bg-card rounded-3xl overflow-hidden border transition-all duration-500 ${
+                cat.featured
+                  ? "border-primary/30 shadow-lg shadow-primary/10 hover:shadow-2xl hover:shadow-primary/20 hover:-translate-y-1"
+                  : "border-border shadow-subtle hover:shadow-hover"
+              }`}
               >
-                <div className="h-48 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                {cat.featured && (
+                  <div className="absolute top-4 right-4 z-20 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full shadow-md tracking-wider">
+                    PREMIUM
+                  </div>
+                )}
+                <div className={`overflow-hidden relative ${cat.featured ? "h-64" : "h-48"}`}>
+                  <div className={`absolute inset-0 z-10 transition-colors duration-500 ${
+                    cat.featured
+                      ? "bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/10"
+                      : "bg-black/20 group-hover:bg-transparent"
+                  }`} />
                   <img 
                     src={cat.image} 
                     alt={cat.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
+                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-cover"
+                    }`}
                   />
                 </div>
-                <div className="p-8">
+                <div className={`p-8 ${cat.featured ? "bg-gradient-to-b from-card to-primary/5" : ""}`}>
                   <div className={`w-12 h-12 rounded-2xl ${cat.color} flex items-center justify-center mb-6 -mt-14 relative z-20 shadow-lg border-4 border-card`}>
                     <cat.icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{cat.title}</h3>
+                  <h3 className={`text-xl font-bold mb-3 ${cat.featured ? "text-primary" : ""}`}>{cat.title}</h3>
                   <p className="text-muted-foreground text-sm mb-6 leading-relaxed">
                     {cat.description}
                   </p>
