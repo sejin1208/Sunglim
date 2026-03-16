@@ -1,0 +1,28 @@
+packages:
+  "framer-motion": "For smooth page transitions and scroll animations to make the site feel premium"
+  "react-hook-form": "For robust contact form handling and validation"
+  "@hookform/resolvers": "For integrating Zod validation with react-hook-form"
+
+images:
+  - path: "artifacts/sunglim/public/images/hero-bg.png"
+    description: "Modern architectural abstract background in deep navy blue and soft white tones, corporate and professional, slightly blurred"
+    aspect_ratio: "16:9"
+  - path: "artifacts/sunglim/public/images/teaching-materials.png"
+    description: "High quality aesthetic photo of modern colorful teaching materials and wooden educational blocks, clean studio lighting"
+    aspect_ratio: "4:3"
+  - path: "artifacts/sunglim/public/images/stationery.png"
+    description: "Premium office stationery organized neatly on a white desk, notebooks, pens, geometric composition"
+    aspect_ratio: "4:3"
+  - path: "artifacts/sunglim/public/images/sports-equip.png"
+    description: "Clean aesthetic shot of premium leather sports balls and jump ropes on a wooden gymnasium floor, bright lighting"
+    aspect_ratio: "4:3"
+  - path: "artifacts/sunglim/public/images/school-furniture.png"
+    description: "Modern minimalist classroom setup with wooden desk and ergonomic blue chair, bright natural light from a window"
+    aspect_ratio: "4:3"
+  - path: "artifacts/sunglim/public/images/company-building.png"
+    description: "Exterior of a modern professional corporate office building with glass windows, clear blue sky, wide angle"
+    aspect_ratio: "16:9"
+
+notes:
+  - "Assuming @workspace/api-client-react is correctly built and available for importing generated TanStack Query hooks."
+  - "Korean typography needs to be robust, using Noto Sans KR via Google Fonts."
