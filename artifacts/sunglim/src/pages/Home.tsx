@@ -20,7 +20,7 @@ export default function Home() {
       icon: PenTool,
       color: "bg-emerald-50 text-emerald-600",
       link: "/products?category=stationery",
-      image: `${import.meta.env.BASE_URL}images/stationery.png`,
+      image: `${import.meta.env.BASE_URL}images/classroom-chair.jpg`,
       featured: false,
     },
     {
@@ -159,10 +159,10 @@ export default function Home() {
             <div className="lg:w-2/3">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 수십 년간 축적된 노하우로<br />
-                최상의 교육 파트너가 되겠습니다.
+                최고의 파트너가 되겠습니다.
               </h2>
               <p className="text-primary-foreground/80 text-lg max-w-2xl">
-                관공서 및 수많은 학교 납품 실적을 보유한 (주)성림교구입니다. 
+                전국 초,중,고등 학교 납품 실적을 보유한 (주)성림교구입니다. 
                 단순한 판매를 넘어 교육 환경의 개선을 위해 함께 고민합니다.
               </p>
             </div>
