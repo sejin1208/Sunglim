@@ -79,32 +79,29 @@ export default function Contact() {
                   <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
                     <h3 className="text-xl font-bold text-primary mb-4">본사</h3>
                     <p className="text-foreground font-medium mb-2">경기도 의정부시 오목로225번길 105. 604호 (민락동)</p>
-                    <div className="w-full h-48 bg-muted rounded-xl mt-4 relative overflow-hidden group">
-                      {/* Fake Map using Unsplash generic map image for visual placeholder */}
-                      <img 
-                        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80" 
-                        alt="Seoul Map Placeholder"
-                        className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="bg-primary text-white px-4 py-2 rounded-lg font-bold shadow-lg">지도 보기</span>
-                      </div>
-                    </div>
+                    <a
+                      href="https://map.naver.com/v5/search/경기도 의정부시 오목로225번길 105"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full h-48 bg-primary/5 border-2 border-primary/20 rounded-xl mt-4 flex flex-col items-center justify-center gap-3 hover:bg-primary/10 transition-colors group cursor-pointer"
+                    >
+                      <MapPin className="w-10 h-10 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="bg-primary text-white px-5 py-2 rounded-lg font-bold shadow-lg text-sm">네이버 지도 보기</span>
+                    </a>
                   </div>
 
                   <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
                     <h3 className="text-xl font-bold text-primary mb-4">공장</h3>
                     <p className="text-foreground font-medium mb-2">경기도 양주시 광적면 현석로 58-20</p>
-                    <div className="w-full h-48 bg-muted rounded-xl mt-4 relative overflow-hidden group">
-                       <img 
-                        src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&q=80" 
-                        alt="Gyeonggi Map Placeholder"
-                        className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-500"
-                      />
-                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="bg-primary text-white px-4 py-2 rounded-lg font-bold shadow-lg">지도 보기</span>
-                      </div>
-                    </div>
+                    <a
+                      href="https://map.naver.com/v5/search/경기도 양주시 광적면 현석로 58-20"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full h-48 bg-primary/5 border-2 border-primary/20 rounded-xl mt-4 flex flex-col items-center justify-center gap-3 hover:bg-primary/10 transition-colors group cursor-pointer"
+                    >
+                      <MapPin className="w-10 h-10 text-primary group-hover:scale-110 transition-transform" />
+                      <span className="bg-primary text-white px-5 py-2 rounded-lg font-bold shadow-lg text-sm">네이버 지도 보기</span>
+                    </a>
                   </div>
                 </div>
               </div>

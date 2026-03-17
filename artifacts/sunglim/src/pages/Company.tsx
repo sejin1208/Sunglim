@@ -57,8 +57,8 @@ export default function Company() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 border-8 border-white/20 z-10 rounded-3xl mix-blend-overlay pointer-events-none" />
                 <img 
-                  src={`${import.meta.env.BASE_URL}images/company-building.png`} 
-                  alt="Sunglim Building" 
+                  src={`${import.meta.env.BASE_URL}images/classroom.png`} 
+                  alt="학교 교실" 
                   className="w-full h-auto object-cover"
                 />
               </div>

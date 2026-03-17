@@ -25,7 +25,7 @@ export default function Home() {
     },
     {
       title: "키높이책상",
-      description: "성장기 학생에게 맞춘 높이 조절 가능한 키높이책상",
+      description: "수업 중 졸린 학생을 위한 키높이책상",
       icon: Dumbbell,
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
