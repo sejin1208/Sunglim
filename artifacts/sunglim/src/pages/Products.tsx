@@ -6,16 +6,9 @@ import { Search } from "lucide-react";
 // Mock Product Data
 const MOCK_PRODUCTS = [
   { id: 10, name: "친환경 높낮이조절형 강화유리 책상", category: "teaching", price: "70,500원", image: "SLD-1772.jpg", model: "SLD-1772", specs: "650×450×580~760mm", g2b: "25987910" },
-  { id: 11, name: "친환경 높낮이조절형 강화유리 넓은 상판 책상", category: "teaching", price: "76,000원", image: "SLD-1757.jpg", model: "SLD-1757", specs: "700×500×580~760mm", g2b: "25987918" },
-  { id: 12, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 넓은 상판 책상", category: "teaching", price: "82,000원", image: "SLD-17577-B.jpg", model: "SLD-17577-B", specs: "650×450×580~760mm", g2b: "25987920" },
   { id: 13, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 책상", category: "teaching", price: "77,500원", image: "SLD-17727-B.jpg", model: "SLD-17727-B", specs: "650×450×700~820mm", g2b: "25987913" },
-  { id: 1, name: "창의력 원목 블록 세트", category: "teaching", price: "품절/문의", image: "student-desk.jpg" },
-  { id: 2, name: "초등 과학 실험 키트", category: "teaching", price: "문의요망", image: "student-desk.jpg" },
-  { id: 3, name: "프리미엄 무지 노트 (10권 세트)", category: "stationery", price: "문의요망", image: "classroom-chair.jpg" },
-  { id: 4, name: "전문가용 색연필 세트", category: "stationery", price: "문의요망", image: "classroom-chair.jpg" },
-  { id: 5, name: "학교 체육용 농구공", category: "sports", price: "문의요망", image: "height-desk.jpg" },
-  { id: 6, name: "안전 뜀틀 세트", category: "sports", price: "문의요망", image: "height-desk.jpg" },
-  { id: 9, name: "수학 도형 학습기", category: "teaching", price: "문의요망", image: "student-desk.jpg" },
+  { id: 11, name: "친환경 높낮이조절형 강화유리 넓은 상판 책상", category: "teaching", price: "76,000원", image: "SLD-1757.jpg", model: "SLD-1757", specs: "700×500×700~820mm", g2b: "25987918" },
+  { id: 12, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 넓은 상판 책상", category: "teaching", price: "82,000원", image: "SLD-17577-B.jpg", model: "SLD-17577-B", specs: "650×450×580~760mm", g2b: "25987920" },
 ];
 
 const CATEGORIES = [
