@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
+import { useSearch } from "wouter";
 
 // Mock Product Data
 const MOCK_PRODUCTS = [
@@ -27,8 +28,14 @@ const CATEGORIES = [
 ];
 
 export default function Products() {
-  const [activeCategory, setActiveCategory] = useState("all");
+  const search = useSearch();
+  const urlCategory = new URLSearchParams(search).get("category") ?? "all";
+  const [activeCategory, setActiveCategory] = useState(urlCategory);
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    setActiveCategory(urlCategory);
+  }, [urlCategory]);
 
   const filteredProducts = MOCK_PRODUCTS.filter((product) => {
     const matchesCategory = activeCategory === "all" || product.category === activeCategory;
