@@ -127,48 +127,6 @@ export default function Company() {
         </div>
       </section>
 
-      {/* History Timeline */}
-      <section className="py-24 bg-secondary/20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">연혁</h2>
-            <p className="text-muted-foreground">성림교구의 지나온 길</p>
-          </div>
-
-          <div className="space-y-12">
-            {[
-              { year: "2020s", events: ["경기 물류창고 확장 이전", "교육청 우수 납품업체 선정", "디지털 교구 사업부 신설"] },
-              { year: "2010s", events: ["(주)성림교구 법인 전환", "ISO 9001 품질경영시스템 인증", "친환경 가구 라인업 런칭"] },
-              { year: "2000s", events: ["전국 주요 초/중/고등학교 납품망 구축", "체육용품 전문 브랜드 취급 시작"] },
-              { year: "1990s", events: ["성림교구 창립 (서울 은평구)", "학용품 및 기본 교구 도매 시작"] },
-            ].map((period, idx) => (
-              <motion.div 
-                key={period.year}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex flex-col md:flex-row gap-6 md:gap-12"
-              >
-                <div className="md:w-32 flex-shrink-0 md:text-right">
-                  <span className="text-3xl font-display font-black text-primary/20">{period.year}</span>
-                </div>
-                <div className="flex-grow border-l-2 border-primary/20 pl-8 pb-8 relative">
-                  <div className="absolute w-4 h-4 rounded-full bg-primary -left-[9px] top-2" />
-                  <ul className="space-y-4 mt-1">
-                    {period.events.map((event, eIdx) => (
-                      <li key={eIdx} className="text-lg text-foreground font-medium flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground" />
-                        {event}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }

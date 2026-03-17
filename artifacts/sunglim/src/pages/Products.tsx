@@ -101,7 +101,7 @@ export default function Products() {
                       <img 
                         src={`${import.meta.env.BASE_URL}images/${product.image}`} 
                         alt={product.name}
-                        className="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500"
+                        className="w-full h-full object-contain bg-white p-3 group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors" />
                     </div>

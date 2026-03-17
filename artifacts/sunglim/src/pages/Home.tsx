@@ -123,7 +123,7 @@ export default function Home() {
                     src={cat.image} 
                     alt={cat.title} 
                     className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
-                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-cover"
+                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-contain bg-gray-50 p-3"
                     }`}
                   />
                 </div>
