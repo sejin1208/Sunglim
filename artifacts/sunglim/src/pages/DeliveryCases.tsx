@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
-import { useQuery } from "@tanstack/react-query";
 import { Building2, CalendarDays, Package, Search } from "lucide-react";
 
 interface DeliveryCase {
@@ -10,23 +9,30 @@ interface DeliveryCase {
   deliveryDate: string;
   modelNames: string;
   imageUrl: string | null;
-  note: string | null;
+  note?: string | null;
 }
 
-async function fetchDeliveryCases(): Promise<DeliveryCase[]> {
-  const res = await fetch(`${import.meta.env.BASE_URL}api/delivery-cases`);
-  if (!res.ok) throw new Error("Failed to fetch");
-  return res.json();
+const DELIVERY_CASES: DeliveryCase[] = [
+  // 최신순
+  { id: 6, schoolName: "단원고등학교",     deliveryDate: "2025-01-13", modelNames: "SLD-0757-B,SLC-0657",    imageUrl: "/images/delivery/단원고등학교_20250113.jpg" },
+  { id: 5, schoolName: "판교중학교",       deliveryDate: "2025-01-13", modelNames: "SLD-0725,SLC-0653",      imageUrl: "/images/delivery/판교중학교_20250113.jpg" },
+  { id: 4, schoolName: "고촌중학교",       deliveryDate: "2025-01-09", modelNames: "SLD-0773-B,SLC-0653",    imageUrl: "/images/delivery/고촌중학교_20250109.jpg" },
+  { id: 3, schoolName: "버들개초등학교",   deliveryDate: "2025-01-07", modelNames: "SLD-0773,SLC-0653",      imageUrl: "/images/delivery/버들개초등학교_20250107.jpg" },
+  { id: 2, schoolName: "시흥장현초등학교", deliveryDate: "2025-01-07", modelNames: "SLD-0773,SLC-0656",      imageUrl: "/images/delivery/장현초등학교_20250107.jpg" },
+  { id: 1, schoolName: "잠원중학교",       deliveryDate: "2025-01-07", modelNames: "SLD-0714C-B,SLC-0657-L", imageUrl: "/images/delivery/잠원중학교_20250107.jpg" },
+];
+
+function modelLabel(model: string): string {
+  const m = model.trim();
+  if (m.startsWith("SLD-")) return `학생용책상 ${m}`;
+  if (m.startsWith("SLC-")) return `교실용걸상 ${m}`;
+  return m;
 }
 
 export default function DeliveryCases() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { data: cases = [], isLoading } = useQuery({
-    queryKey: ["delivery-cases"],
-    queryFn: fetchDeliveryCases,
-  });
 
-  const filtered = cases.filter(
+  const filtered = DELIVERY_CASES.filter(
     (c) =>
       c.schoolName.toLowerCase().includes(searchQuery.toLowerCase()) ||
       c.modelNames.toLowerCase().includes(searchQuery.toLowerCase())
@@ -61,20 +67,7 @@ export default function DeliveryCases() {
             </div>
           </div>
 
-          {isLoading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="bg-card rounded-2xl overflow-hidden border border-border animate-pulse">
-                  <div className="aspect-[4/3] bg-muted" />
-                  <div className="p-6 space-y-3">
-                    <div className="h-5 bg-muted rounded w-2/3" />
-                    <div className="h-4 bg-muted rounded w-1/2" />
-                    <div className="h-4 bg-muted rounded w-3/4" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : filtered.length > 0 ? (
+          {filtered.length > 0 ? (
             <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatePresence>
                 {filtered.map((c) => (
@@ -110,11 +103,9 @@ export default function DeliveryCases() {
                         <div className="flex items-start gap-2 text-sm text-muted-foreground">
                           <Package className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                           <span className="flex flex-col gap-0.5">
-                            {c.modelNames.split(",").map((m, i) => {
-                              const model = m.trim();
-                              const label = model.startsWith("SLD-") ? "학생용책상" : model.startsWith("SLC-") ? "교실용걸상" : null;
-                              return <span key={i}>{label ? `${label} ${model}` : model}</span>;
-                            })}
+                            {c.modelNames.split(",").map((m, i) => (
+                              <span key={i}>{modelLabel(m)}</span>
+                            ))}
                           </span>
                         </div>
                         {c.note && (
@@ -135,7 +126,7 @@ export default function DeliveryCases() {
                 {searchQuery ? "검색 결과가 없습니다" : "등록된 납품사례가 없습니다"}
               </h3>
               <p className="text-muted-foreground">
-                {searchQuery ? "다른 검색어를 입력해보세요." : "납품사례를 추가해주세요."}
+                {searchQuery ? "다른 검색어를 입력해보세요." : ""}
               </p>
             </div>
           )}
