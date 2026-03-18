@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { db, deliveryCasesTable } from "@workspace/db";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 import multer from "multer";
 import sharp from "sharp";
 import path from "path";
@@ -20,8 +20,18 @@ async function cropAndSave(buffer: Buffer, filename: string): Promise<string> {
   const cropTop = Math.floor(h * 0.12);
   const cropHeight = h - cropTop;
   const outPath = path.join(uploadDir, filename);
+
+  // Detect brightness: get stats on cropped region
+  const cropped = sharp(buffer).extract({ left: 0, top: cropTop, width: meta.width ?? 800, height: cropHeight });
+  const stats = await cropped.stats();
+  const avgBrightness = (stats.channels[0].mean + stats.channels[1].mean + stats.channels[2].mean) / 3;
+
+  // If dark (mean < 125 out of 255), boost brightness
+  const brightnessBoost = avgBrightness < 125 ? 1 + (125 - avgBrightness) / 180 : 1.0;
+
   await sharp(buffer)
     .extract({ left: 0, top: cropTop, width: meta.width ?? 800, height: cropHeight })
+    .modulate({ brightness: brightnessBoost })
     .jpeg({ quality: 88 })
     .toFile(outPath);
   return outPath;
@@ -29,7 +39,7 @@ async function cropAndSave(buffer: Buffer, filename: string): Promise<string> {
 
 router.get("/delivery-cases", async (_req, res) => {
   try {
-    const cases = await db.select().from(deliveryCasesTable).orderBy(deliveryCasesTable.deliveryDate);
+    const cases = await db.select().from(deliveryCasesTable).orderBy(desc(deliveryCasesTable.deliveryDate));
     res.json(cases);
   } catch (error) {
     console.error("List delivery cases error:", error);
