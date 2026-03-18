@@ -1,5 +1,3 @@
-import https from "https";
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -10,7 +8,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "필수 항목을 입력해주세요." });
   }
 
-  // 문의 내용 로그 (서버 로그로 확인 가능)
   console.log("[문의접수]", {
     name,
     company: company ?? "-",
