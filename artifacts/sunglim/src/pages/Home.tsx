@@ -122,7 +122,9 @@ export default function Home() {
                   <img 
                     src={cat.image} 
                     alt={cat.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
+                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-contain bg-gray-50 p-3"
+                    }`}
                   />
                 </div>
                 <div className={`p-8 ${cat.featured ? "bg-gradient-to-b from-card to-primary/5" : ""}`}>
