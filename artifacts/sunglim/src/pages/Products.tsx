@@ -22,6 +22,7 @@ const MOCK_PRODUCTS = [
   // 스탠딩책상
   { id: 30, name: "친환경 높낮이조절형 키높이책상", category: "sports", price: "85,000원", image: "SLD-2712-A.jpg", model: "SLD-2712-A", specs: "650×450×940~1120mm", g2b: "25166812" },
   { id: 31, name: "친환경 키높이책상", category: "sports", price: "77,000원", image: "SLD-2413-A.jpg", model: "SLD-2413-A", specs: "650×450×1050mm", g2b: "25166811" },
+  { id: 23, name: "친환경 높낮이조절형 중고등생 사출 걸상", category: "stationery", price: "44,000원", image: "SLC-06567.jpg", model: "SLC-06567", specs: "435×420×420~500mm", g2b: "25165450" },
 ];
 
 const CATEGORIES = [
