@@ -92,7 +92,7 @@ export default function DeliveryCases() {
                         <img
                           src={`${import.meta.env.BASE_URL}${c.imageUrl.replace(/^\//, "")}`}
                           alt={c.schoolName}
-                          className="w-full h-full object-contain bg-white p-3 group-hover:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
