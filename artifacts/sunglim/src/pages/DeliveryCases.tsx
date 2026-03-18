@@ -109,7 +109,11 @@ export default function DeliveryCases() {
                         </div>
                         <div className="flex items-start gap-2 text-sm text-muted-foreground">
                           <Package className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                          <span>{c.modelNames}</span>
+                          <span className="flex flex-col gap-0.5">
+                            {c.modelNames.split(",").map((m, i) => (
+                              <span key={i}>{m.trim()}</span>
+                            ))}
+                          </span>
                         </div>
                         {c.note && (
                           <p className="text-xs text-muted-foreground pt-1 border-t border-border">{c.note}</p>

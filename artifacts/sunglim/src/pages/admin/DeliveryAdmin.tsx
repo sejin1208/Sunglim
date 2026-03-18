@@ -157,7 +157,12 @@ export default function DeliveryAdmin() {
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-foreground">{c.schoolName}</p>
                   <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1"><CalendarDays className="w-3.5 h-3.5" />{c.deliveryDate}</p>
-                  <p className="text-sm text-muted-foreground flex items-center gap-1 mt-0.5"><Package className="w-3.5 h-3.5" />{c.modelNames}</p>
+                  <div className="flex items-start gap-1 mt-0.5">
+                    <Package className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
+                    <span className="flex flex-col text-sm text-muted-foreground">
+                      {c.modelNames.split(",").map((m, i) => <span key={i}>{m.trim()}</span>)}
+                    </span>
+                  </div>
                   {c.note && <p className="text-xs text-muted-foreground mt-1">{c.note}</p>}
                 </div>
                 <button
