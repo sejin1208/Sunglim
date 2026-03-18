@@ -17,7 +17,7 @@ const upload = multer({ storage, limits: { fileSize: 20 * 1024 * 1024 } });
 async function cropAndSave(buffer: Buffer, filename: string): Promise<string> {
   const meta = await sharp(buffer).metadata();
   const h = meta.height ?? 0;
-  const cropTop = Math.floor(h * 0.30);
+  const cropTop = Math.floor(h * 0.12);
   const cropHeight = h - cropTop;
   const outPath = path.join(uploadDir, filename);
   await sharp(buffer)
