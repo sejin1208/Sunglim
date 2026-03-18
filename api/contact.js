@@ -15,11 +15,13 @@ export default async function handler(req, res) {
 
   if (user && pass) {
     try {
+      // 네이버 SMTP는 아이디만 사용 (7661496@naver.com → 7661496)
+      const smtpUser = user.replace(/@naver\.com$/i, "");
       const transporter = nodemailer.createTransport({
         host: "smtp.naver.com",
         port: 587,
         secure: false,
-        auth: { user, pass },
+        auth: { user: smtpUser, pass },
       });
 
       const emailText = [

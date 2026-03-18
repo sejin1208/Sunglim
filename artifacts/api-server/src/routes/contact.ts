@@ -10,11 +10,13 @@ function createTransporter() {
   const user = process.env.NAVER_EMAIL_USER;
   const pass = process.env.NAVER_EMAIL_PASS;
   if (!user || !pass) return null;
+  // 네이버 SMTP는 아이디만 사용 (7661496@naver.com → 7661496)
+  const smtpUser = user.replace(/@naver\.com$/i, "");
   return nodemailer.createTransport({
     host: "smtp.naver.com",
     port: 587,
     secure: false,
-    auth: { user, pass },
+    auth: { user: smtpUser, pass },
   });
 }
 
