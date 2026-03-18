@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { name: "회사소개", href: "/company" },
   { name: "제품소개", href: "/products" },
+  { name: "납품사례", href: "/delivery" },
   { name: "고객센터", href: "/contact" },
 ];
 

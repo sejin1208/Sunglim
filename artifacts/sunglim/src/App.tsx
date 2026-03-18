@@ -8,8 +8,10 @@ import NotFound from "@/pages/not-found";
 import Home from "./pages/Home";
 import Company from "./pages/Company";
 import Products from "./pages/Products";
+import DeliveryCases from "./pages/DeliveryCases";
 import Contact from "./pages/Contact";
 import ContactList from "./pages/admin/ContactList";
+import DeliveryAdmin from "./pages/admin/DeliveryAdmin";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +28,9 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/company" component={Company} />
       <Route path="/products" component={Products} />
+      <Route path="/delivery" component={DeliveryCases} />
       <Route path="/contact" component={Contact} />
+      <Route path="/admin/delivery" component={DeliveryAdmin} />
       <Route path="/admin/contacts" component={ContactList} />
       <Route component={NotFound} />
     </Switch>
