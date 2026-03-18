@@ -10,5 +10,6 @@
   },
   "rewrites": [
     { "source": "/((?!api/).*)", "destination": "/index.html" }
-  ]
+  ],
+  "nodeVersion": "22.x"
 }
