@@ -7,9 +7,22 @@ const isReplit = !!process.env.REPL_ID;
 const port = Number(process.env.PORT) || 3000;
 const basePath = process.env.BASE_PATH || "/";
 
+const suppressSourcemapWarnings = {
+  name: "suppress-sourcemap-warnings",
+  enforce: "pre" as const,
+  configResolved(config: { logger: { warn: (...args: unknown[]) => void } }) {
+    const original = config.logger.warn.bind(config.logger);
+    config.logger.warn = (msg: unknown, ...args: unknown[]) => {
+      if (typeof msg === "string" && msg.includes("Can't resolve original location of error")) return;
+      original(msg, ...args);
+    };
+  },
+};
+
 export default defineConfig({
   base: basePath,
   plugins: [
+    suppressSourcemapWarnings,
     react(),
     tailwindcss(),
     ...(isReplit
