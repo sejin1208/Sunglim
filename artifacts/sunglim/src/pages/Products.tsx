@@ -20,6 +20,7 @@ const MOCK_PRODUCTS = [
   // 키높이책상
   { id: 30, name: "친환경 높낮이조절형 키높이책상", category: "sports", price: "85,000원", image: "SLD-2712-A.jpg", model: "SLD-2712-A", specs: "650×450×940~1120mm", g2b: "25166812" },
   { id: 31, name: "친환경 키높이책상", category: "sports", price: "77,000원", image: "SLD-2413-A.jpg", model: "SLD-2413-A", specs: "650×450×1050mm", g2b: "25166811" },
+  { id: 14, name: "친환경 높낮이조절형 세라믹 넓은 상판 책상", category: "teaching", price: "75,000원", image: "SLD-1751.jpg", model: "SLD-1751", specs: "700×450×580~760mm", g2b: "25987915" },
 ];
 
 const CATEGORIES = [
