@@ -1,0 +1,12 @@
+# 불필요한 artifacts (sunglim만 배포)
+artifacts/api-server
+artifacts/mockup-sandbox
+
+# 로컬 개발 전용 파일
+.local
+attached_assets
+
+# 테스트 / 캐시
+node_modules/.cache
+**/.turbo
+**/coverage
