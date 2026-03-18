@@ -83,10 +83,16 @@ export default function Contact() {
                       href="https://map.naver.com/v5/search/경기도 의정부시 오목로225번길 105"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full h-48 bg-primary/5 border-2 border-primary/20 rounded-xl mt-4 flex flex-col items-center justify-center gap-3 hover:bg-primary/10 transition-colors group cursor-pointer"
+                      className="block w-full mt-4 rounded-xl overflow-hidden border border-border hover:opacity-90 transition-opacity group relative"
                     >
-                      <MapPin className="w-10 h-10 text-primary group-hover:scale-110 transition-transform" />
-                      <span className="bg-primary text-white px-5 py-2 rounded-lg font-bold shadow-lg text-sm">네이버 지도 보기</span>
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/maps/map_bonseo.jpg`}
+                        alt="본사 위치 지도"
+                        className="w-full h-52 object-cover"
+                      />
+                      <span className="absolute bottom-3 right-3 bg-[#03c75a] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5" /> 네이버 지도 보기
+                      </span>
                     </a>
                   </div>
 
@@ -97,10 +103,16 @@ export default function Contact() {
                       href="https://map.naver.com/v5/search/경기도 양주시 광적면 현석로 58-20"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full h-48 bg-primary/5 border-2 border-primary/20 rounded-xl mt-4 flex flex-col items-center justify-center gap-3 hover:bg-primary/10 transition-colors group cursor-pointer"
+                      className="block w-full mt-4 rounded-xl overflow-hidden border border-border hover:opacity-90 transition-opacity group relative"
                     >
-                      <MapPin className="w-10 h-10 text-primary group-hover:scale-110 transition-transform" />
-                      <span className="bg-primary text-white px-5 py-2 rounded-lg font-bold shadow-lg text-sm">네이버 지도 보기</span>
+                      <img
+                        src={`${import.meta.env.BASE_URL}images/maps/map_factory.jpg`}
+                        alt="공장 위치 지도"
+                        className="w-full h-52 object-cover"
+                      />
+                      <span className="absolute bottom-3 right-3 bg-[#03c75a] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5" /> 네이버 지도 보기
+                      </span>
                     </a>
                   </div>
                 </div>
