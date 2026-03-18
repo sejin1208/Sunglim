@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { db, deliveryCasesTable } from "@workspace/db";
-import { desc, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -21,7 +21,7 @@ const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
 
 router.get("/delivery-cases", async (_req, res) => {
   try {
-    const cases = await db.select().from(deliveryCasesTable).orderBy(desc(deliveryCasesTable.deliveryDate));
+    const cases = await db.select().from(deliveryCasesTable).orderBy(deliveryCasesTable.deliveryDate);
     res.json(cases);
   } catch (error) {
     console.error("List delivery cases error:", error);
