@@ -11,6 +11,7 @@ const MOCK_PRODUCTS = [
   { id: 13, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 책상", category: "teaching", price: "77,500원", image: "SLD-17727-B.jpg", model: "SLD-17727-B", specs: "650×450×700~820mm", g2b: "25987913" },
   { id: 11, name: "친환경 높낮이조절형 강화유리 넓은 상판 책상", category: "teaching", price: "76,000원", image: "SLD-1757.jpg", model: "SLD-1757", specs: "700×500×580~760mm", g2b: "25987918" },
   { id: 10, name: "친환경 높낮이조절형 강화유리 책상", category: "teaching", price: "70,500원", image: "SLD-1772.jpg", model: "SLD-1772", specs: "650×450×580~760mm", g2b: "25987910" },
+  { id: 9, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "69,500원", image: "SLD-1712.jpg", model: "SLD-1712", specs: "650×450×580~760mm", g2b: "25987910" },
   // 교실용걸상 — 가격 높은 순
   { id: 20, name: "친환경 높낮이조절형 팔걸이 걸상", category: "stationery", price: "50,500원", image: "SLC-06587.jpg", model: "SLC-06587", specs: "435×420×420~500mm", g2b: "25560953" },
   { id: 21, name: "친환경 높낮이조절형 중고등생 사출 걸상", category: "stationery", price: "43,000원", image: "SLC-16577D.jpg", model: "SLC-16577D", specs: "430×420×420~500mm", g2b: "25987893" },
