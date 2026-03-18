@@ -12,7 +12,7 @@ const MOCK_PRODUCTS = [
   { id: 11, name: "친환경 높낮이조절형 강화유리 넓은 상판 책상", category: "teaching", price: "76,000원", image: "SLD-1757.jpg", model: "SLD-1757", specs: "700×500×580~760mm", g2b: "25987918" },
   { id: 10, name: "친환경 높낮이조절형 강화유리 책상", category: "teaching", price: "70,500원", image: "SLD-1772.jpg", model: "SLD-1772", specs: "650×450×580~760mm", g2b: "25987910" },
   { id: 8, name: "친환경 높낮이조절형 세라믹 중고등생 앞가림판 책상", category: "teaching", price: "76,000원", image: "SLD-17127-B.jpg", model: "SLD-17127-B", specs: "650×450×700~820mm", g2b: "25987909" },
-  { id: 9, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "69,500원", image: "SLD-1712.jpg", model: "SLD-1712", specs: "650×450×580~760mm", g2b: "25987910" },
+  { id: 9, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "69,500원", image: "SLD-1712.jpg", model: "SLD-1712", specs: "650×450×580~760mm", g2b: "25987907" },
   { id: 15, name: "친환경 높낮이조절형 세라믹 중고등생 앞가림판 넓은 상판 책상", category: "teaching", price: "81,000원", image: "SLD-17517-B.jpg", model: "SLD-17517-B", specs: "700×500×700~820mm", g2b: "25987917" },
   { id: 14, name: "친환경 높낮이조절형 세라믹 넓은 상판 책상", category: "teaching", price: "75,000원", image: "SLD-1751.jpg", model: "SLD-1751", specs: "700×500×580~760mm", g2b: "25987915" },
   { id: 17, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 책상", category: "teaching", price: "72,500원", image: "SLD-0773-B.jpg", model: "SLD-0773-B", specs: "650×450×580~760mm", g2b: "25160882" },
