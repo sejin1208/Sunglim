@@ -6,18 +6,18 @@ import { useSearch } from "wouter";
 
 // Mock Product Data
 const MOCK_PRODUCTS = [
-  // 학생용책상 — 가격 높은 순
+  // 학생용책상
   { id: 12, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 넓은 상판 책상", category: "teaching", price: "82,000원", image: "SLD-17577-B.jpg", model: "SLD-17577-B", specs: "700×500×700~820mm", g2b: "25987920" },
   { id: 13, name: "친환경 높낮이조절형 강화유리 중고등생 앞가림판 책상", category: "teaching", price: "77,500원", image: "SLD-17727-B.jpg", model: "SLD-17727-B", specs: "650×450×700~820mm", g2b: "25987913" },
   { id: 11, name: "친환경 높낮이조절형 강화유리 넓은 상판 책상", category: "teaching", price: "76,000원", image: "SLD-1757.jpg", model: "SLD-1757", specs: "700×500×580~760mm", g2b: "25987918" },
-  { id: 8, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "76,000원", image: "SLD-17127-B.jpg", model: "SLD-17127-B", specs: "650×450×700~820mm", g2b: "25987909" },
   { id: 10, name: "친환경 높낮이조절형 강화유리 책상", category: "teaching", price: "70,500원", image: "SLD-1772.jpg", model: "SLD-1772", specs: "650×450×580~760mm", g2b: "25987910" },
+  { id: 8, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "76,000원", image: "SLD-17127-B.jpg", model: "SLD-17127-B", specs: "650×450×700~820mm", g2b: "25987909" },
   { id: 9, name: "친환경 높낮이조절형 세라믹 상판 책상", category: "teaching", price: "69,500원", image: "SLD-1712.jpg", model: "SLD-1712", specs: "650×450×580~760mm", g2b: "25987910" },
-  // 교실용걸상 — 가격 높은 순
+  // 교실용걸상
   { id: 20, name: "친환경 높낮이조절형 팔걸이 걸상", category: "stationery", price: "50,500원", image: "SLC-06587.jpg", model: "SLC-06587", specs: "435×420×420~500mm", g2b: "25560953" },
   { id: 21, name: "친환경 높낮이조절형 중고등생 사출 걸상", category: "stationery", price: "43,000원", image: "SLC-16577D.jpg", model: "SLC-16577D", specs: "430×420×420~500mm", g2b: "25987893" },
   { id: 22, name: "친환경 높낮이조절형 사출 걸상", category: "stationery", price: "42,500원", image: "SLC-1657.jpg", model: "SLC-1657", specs: "430×420×340~460mm", g2b: "25987872" },
-  // 키높이책상 — 가격 높은 순
+  // 키높이책상
   { id: 30, name: "친환경 높낮이조절형 키높이책상", category: "sports", price: "85,000원", image: "SLD-2712-A.jpg", model: "SLD-2712-A", specs: "650×450×940~1120mm", g2b: "25166812" },
   { id: 31, name: "친환경 키높이책상", category: "sports", price: "77,000원", image: "SLD-2413-A.jpg", model: "SLD-2413-A", specs: "650×450×1050mm", g2b: "25166811" },
 ];
