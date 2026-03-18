@@ -24,8 +24,8 @@ export default function Home() {
       featured: true,
     },
     {
-      title: "키높이책상",
-      description: "수업 중 졸린 학생을 위한 키높이책상",
+      title: "스탠딩책상",
+      description: "수업 중 졸린 학생을 위한 스탠딩책상",
       icon: Dumbbell,
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
@@ -122,9 +122,7 @@ export default function Home() {
                   <img 
                     src={cat.image} 
                     alt={cat.title} 
-                    className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
-                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-contain bg-gray-50 p-3"
-                    }`}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
                 <div className={`p-8 ${cat.featured ? "bg-gradient-to-b from-card to-primary/5" : ""}`}>
