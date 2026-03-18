@@ -104,7 +104,7 @@ export default function DeliveryAdmin() {
             <div>
               <label className="text-sm font-bold block mb-1">모델명 <span className="text-destructive">*</span></label>
               <input value={form.modelNames} onChange={e => setForm(f => ({ ...f, modelNames: e.target.value }))}
-                placeholder="SLD-1772 × 30, SLC-1657 × 30"
+                placeholder="SLD-0714C-B, SLC-0657-L"
                 className="w-full px-4 py-3 rounded-xl border-2 border-border bg-background focus:outline-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all" />
             </div>
             <div>
@@ -160,7 +160,11 @@ export default function DeliveryAdmin() {
                   <div className="flex items-start gap-1 mt-0.5">
                     <Package className="w-3.5 h-3.5 text-muted-foreground shrink-0 mt-0.5" />
                     <span className="flex flex-col text-sm text-muted-foreground">
-                      {c.modelNames.split(",").map((m, i) => <span key={i}>{m.trim()}</span>)}
+                      {c.modelNames.split(",").map((m, i) => {
+                        const model = m.trim();
+                        const label = model.startsWith("SLD-") ? "학생용책상" : model.startsWith("SLC-") ? "교실용걸상" : null;
+                        return <span key={i}>{label ? `${label} ${model}` : model}</span>;
+                      })}
                     </span>
                   </div>
                   {c.note && <p className="text-xs text-muted-foreground mt-1">{c.note}</p>}

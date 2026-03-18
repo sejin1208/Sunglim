@@ -2,6 +2,7 @@ import { Router, type IRouter } from "express";
 import { db, deliveryCasesTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import multer from "multer";
+import sharp from "sharp";
 import path from "path";
 import fs from "fs";
 
@@ -10,14 +11,21 @@ const router: IRouter = Router();
 const uploadDir = path.resolve(process.cwd(), "../sunglim/public/images/delivery");
 if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
 
-const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => cb(null, uploadDir),
-  filename: (_req, file, cb) => {
-    const unique = Date.now() + "-" + Math.round(Math.random() * 1e6);
-    cb(null, unique + path.extname(file.originalname));
-  },
-});
-const upload = multer({ storage, limits: { fileSize: 10 * 1024 * 1024 } });
+const storage = multer.memoryStorage();
+const upload = multer({ storage, limits: { fileSize: 20 * 1024 * 1024 } });
+
+async function cropAndSave(buffer: Buffer, filename: string): Promise<string> {
+  const meta = await sharp(buffer).metadata();
+  const h = meta.height ?? 0;
+  const cropTop = Math.floor(h * 0.30);
+  const cropHeight = h - cropTop;
+  const outPath = path.join(uploadDir, filename);
+  await sharp(buffer)
+    .extract({ left: 0, top: cropTop, width: meta.width ?? 800, height: cropHeight })
+    .jpeg({ quality: 88 })
+    .toFile(outPath);
+  return outPath;
+}
 
 router.get("/delivery-cases", async (_req, res) => {
   try {
@@ -37,7 +45,10 @@ router.post("/delivery-cases", upload.single("image"), async (req, res) => {
     }
     let imageUrl: string | null = null;
     if (req.file) {
-      imageUrl = `/images/delivery/${req.file.filename}`;
+      const unique = Date.now() + "-" + Math.round(Math.random() * 1e6);
+      const filename = unique + ".jpg";
+      await cropAndSave(req.file.buffer, filename);
+      imageUrl = `/images/delivery/${filename}`;
     }
     const [inserted] = await db.insert(deliveryCasesTable).values({
       schoolName,

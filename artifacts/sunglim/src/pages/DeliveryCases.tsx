@@ -110,9 +110,11 @@ export default function DeliveryCases() {
                         <div className="flex items-start gap-2 text-sm text-muted-foreground">
                           <Package className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                           <span className="flex flex-col gap-0.5">
-                            {c.modelNames.split(",").map((m, i) => (
-                              <span key={i}>{m.trim()}</span>
-                            ))}
+                            {c.modelNames.split(",").map((m, i) => {
+                              const model = m.trim();
+                              const label = model.startsWith("SLD-") ? "학생용책상" : model.startsWith("SLC-") ? "교실용걸상" : null;
+                              return <span key={i}>{label ? `${label} ${model}` : model}</span>;
+                            })}
                           </span>
                         </div>
                         {c.note && (
