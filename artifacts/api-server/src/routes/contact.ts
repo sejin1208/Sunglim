@@ -2,23 +2,9 @@ import { Router, type IRouter } from "express";
 import { db, contactsTable } from "@workspace/db";
 import { SubmitContactBody, ListContactsResponseItem } from "@workspace/api-zod";
 import { desc } from "drizzle-orm";
-import nodemailer from "nodemailer";
+import { sendEmail } from "../gmail-client.js";
 
 const router: IRouter = Router();
-
-function createTransporter() {
-  const user = process.env.NAVER_EMAIL_USER;
-  const pass = process.env.NAVER_EMAIL_PASS;
-  if (!user || !pass) return null;
-  // 네이버 SMTP는 아이디만 사용 (7661496@naver.com → 7661496)
-  const smtpUser = user.replace(/@naver\.com$/i, "");
-  return nodemailer.createTransport({
-    host: "smtp.naver.com",
-    port: 587,
-    secure: false,
-    auth: { user: smtpUser, pass },
-  });
-}
 
 router.post("/contact", async (req, res) => {
   try {
@@ -32,32 +18,28 @@ router.post("/contact", async (req, res) => {
       message: body.message,
     }).returning();
 
-    // Send email notification
-    const transporter = createTransporter();
-    if (transporter) {
-      const emailText = [
-        `[온라인 문의 접수]`,
-        ``,
-        `이름/담당자: ${body.name}`,
-        `기관/회사명: ${body.company ?? "-"}`,
-        `연락처: ${body.phone}`,
-        `이메일: ${body.email ?? "-"}`,
-        `제목: ${body.subject}`,
-        ``,
-        `문의 내용:`,
-        body.message,
-        ``,
-        `접수 번호: ${inserted.id}`,
-        `접수 일시: ${new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`,
-      ].join("\n");
+    // Gmail로 이메일 발송 (Replit Google Mail 커넥터 사용)
+    const emailText = [
+      `[온라인 문의 접수]`,
+      ``,
+      `이름/담당자: ${body.name}`,
+      `기관/회사명: ${body.company ?? "-"}`,
+      `연락처: ${body.phone}`,
+      `이메일: ${body.email ?? "-"}`,
+      `제목: ${body.subject}`,
+      ``,
+      `문의 내용:`,
+      body.message,
+      ``,
+      `접수 번호: ${inserted.id}`,
+      `접수 일시: ${new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`,
+    ].join("\n");
 
-      await transporter.sendMail({
-        from: `"성림교구 홈페이지" <${process.env.NAVER_EMAIL_USER}>`,
-        to: "7661496@naver.com",
-        subject: `[문의접수] ${body.subject} - ${body.name}`,
-        text: emailText,
-      }).catch((err) => console.error("Email send error:", err));
-    }
+    await sendEmail({
+      to: "7661496@naver.com",
+      subject: `[문의접수] ${body.subject} - ${body.name}`,
+      text: emailText,
+    }).catch((err) => console.error("Email send error:", err));
 
     res.status(201).json({ id: inserted.id, message: "문의가 성공적으로 접수되었습니다." });
   } catch (error) {
