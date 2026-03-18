@@ -41,7 +41,7 @@ export default function Home() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src={`${import.meta.env.BASE_URL}images/hero-var-1.png`} 
+            src={`${import.meta.env.BASE_URL}images/hero-bg.png`} 
             alt="Sunglim Edu Hero" 
             className="w-full h-full object-cover object-center"
           />
