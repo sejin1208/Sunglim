@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -27,23 +27,20 @@ export default async function handler(req, res) {
 </table>
 `;
 
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_APP_PASS,
-    },
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
-    await transporter.sendMail({
-      from: `"성림교구 홈페이지" <${process.env.GMAIL_USER}>`,
+    const { error } = await resend.emails.send({
+      from: "성림교구 홈페이지 <onboarding@resend.dev>",
       to: "7661496@naver.com",
       subject: `[성림교구 문의] ${subject} - ${name}`,
       html: htmlBody,
     });
+
+    if (error) {
+      console.error("[메일 발송 실패]", error);
+      return res.status(500).json({ error: "메일 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요." });
+    }
 
     console.log("[문의접수 완료]", { name, phone, subject, receivedAt });
     return res.status(201).json({ message: "문의가 성공적으로 접수되었습니다." });
