@@ -52,7 +52,7 @@ export function Navbar() {
                   성림교구
                 </span>
                 <span className="text-[10px] text-muted-foreground font-semibold tracking-widest uppercase">
-                  SUNGLIM EDU
+                  SUNGLIM
                 </span>
               </div>
             </Link>
