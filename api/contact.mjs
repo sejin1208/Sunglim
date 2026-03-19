@@ -32,7 +32,7 @@ export default async function handler(req, res) {
   try {
     const { error } = await resend.emails.send({
       from: "성림교구 홈페이지 <onboarding@resend.dev>",
-      to: "7661496@naver.com",
+      to: "tjdfla48@gmail.com",
       subject: `[성림교구 문의] ${subject} - ${name}`,
       html: htmlBody,
     });
