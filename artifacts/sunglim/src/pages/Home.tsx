@@ -63,7 +63,7 @@ export default function Home() {
                 <span className="text-gradient">바른 교육 환경</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-                전국 초등, 중등, 고등학교에서 필요한 학생용책걸상을 최고의 품질로 공급하며 대한민국의 교육환경 발전과 함께 성장해왔습니다. 모든 제품은 E0등급 이상의 친환경 자재만을 사용하는 친환경 기업입니다.
+                전국 초, 중, 고등학교에서 필요한 학생용책걸상을 최고의 품질로 공급하며 대한민국의 교육환경 발전과 함께 성장해왔습니다. 모든 제품은 E0등급 이상의 친환경 자재만을 사용하는 친환경 기업입니다.
               </p>
               
               <div className="flex flex-wrap gap-4">
