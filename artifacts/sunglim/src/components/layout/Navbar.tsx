@@ -51,7 +51,10 @@ export function Navbar() {
                 <span className="font-display font-black text-xl leading-tight tracking-tight text-primary">
                   성림교구
                 </span>
-                <span className="text-[10px] text-muted-foreground font-semibold tracking-widest uppercase">
+                <span
+                  className="text-[10px] text-muted-foreground font-semibold uppercase w-full"
+                  style={{ textAlign: "justify", textAlignLast: "justify" }}
+                >
                   SUNGLIM
                 </span>
               </div>
