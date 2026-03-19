@@ -1,4 +1,60 @@
-import { Resend } from "resend";
+import { google } from "googleapis";
+
+async function getGmailAccessToken() {
+  const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
+  const xReplitToken = process.env.REPL_IDENTITY
+    ? "repl " + process.env.REPL_IDENTITY
+    : process.env.WEB_REPL_RENEWAL
+    ? "depl " + process.env.WEB_REPL_RENEWAL
+    : null;
+
+  if (!hostname || !xReplitToken) {
+    throw new Error("Gmail connector env vars not available");
+  }
+
+  const data = await fetch(
+    "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=google-mail",
+    { headers: { Accept: "application/json", "X-Replit-Token": xReplitToken } }
+  ).then((r) => r.json());
+
+  const settings = data.items?.[0]?.settings;
+  const accessToken =
+    settings?.access_token ||
+    settings?.oauth?.credentials?.access_token;
+
+  if (!accessToken) throw new Error("Gmail not connected");
+  return accessToken;
+}
+
+async function sendGmail({ to, subject, html }) {
+  const accessToken = await getGmailAccessToken();
+  const oauth2Client = new google.auth.OAuth2();
+  oauth2Client.setCredentials({ access_token: accessToken });
+  const gmail = google.gmail({ version: "v1", auth: oauth2Client });
+
+  const boundary = "boundary_sunglim";
+  const messageParts = [
+    `To: ${to}`,
+    `Subject: =?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`,
+    "MIME-Version: 1.0",
+    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    "",
+    `--${boundary}`,
+    "Content-Type: text/html; charset=UTF-8",
+    "Content-Transfer-Encoding: base64",
+    "",
+    Buffer.from(html).toString("base64"),
+    `--${boundary}--`,
+  ];
+
+  const raw = Buffer.from(messageParts.join("\r\n"))
+    .toString("base64")
+    .replace(/\+/g, "-")
+    .replace(/\//g, "_")
+    .replace(/=+$/, "");
+
+  await gmail.users.messages.send({ userId: "me", requestBody: { raw } });
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -27,21 +83,12 @@ export default async function handler(req, res) {
 </table>
 `;
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   try {
-    const { error } = await resend.emails.send({
-      from: "성림교구 홈페이지 <onboarding@resend.dev>",
-      to: "tjdfla48@gmail.com",
+    await sendGmail({
+      to: "7661496@naver.com",
       subject: `[성림교구 문의] ${subject} - ${name}`,
       html: htmlBody,
     });
-
-    if (error) {
-      console.error("[메일 발송 실패]", error);
-      return res.status(500).json({ error: "메일 발송 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요." });
-    }
-
     console.log("[문의접수 완료]", { name, phone, subject, receivedAt });
     return res.status(201).json({ message: "문의가 성공적으로 접수되었습니다." });
   } catch (err) {

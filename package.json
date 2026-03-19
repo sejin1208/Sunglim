@@ -15,7 +15,6 @@
     "typescript": "~5.9.2"
   },
   "dependencies": {
-    "nodemailer": "^8.0.2",
-    "resend": "^6.9.4"
+    "googleapis": "148.0.0"
   }
 }
