@@ -56,8 +56,8 @@ export function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50">
-          <p>상호: (주)성림교구 | 사업자등록번호: 준비중</p>
-          <p>&copy; {new Date().getFullYear()} Sunglim Edu. All rights reserved.</p>
+          <p>상호: (주)성림교구 | 사업자등록번호: 101-81-65760</p>
+          <p>&copy; {new Date().getFullYear()} Sunglim. All rights reserved.</p>
         </div>
       </div>
     </footer>
