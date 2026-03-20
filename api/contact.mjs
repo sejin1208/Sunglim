@@ -1,6 +1,7 @@
+import nodemailer from "nodemailer";
 import { google } from "googleapis";
 
-async function getGmailAccessToken() {
+async function sendViaGmailConnector({ to, subject, html }) {
   const hostname = process.env.REPLIT_CONNECTORS_HOSTNAME;
   const xReplitToken = process.env.REPL_IDENTITY
     ? "repl " + process.env.REPL_IDENTITY
@@ -8,9 +9,7 @@ async function getGmailAccessToken() {
     ? "depl " + process.env.WEB_REPL_RENEWAL
     : null;
 
-  if (!hostname || !xReplitToken) {
-    throw new Error("Gmail connector env vars not available");
-  }
+  if (!hostname || !xReplitToken) throw new Error("No connector env");
 
   const data = await fetch(
     "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=google-mail",
@@ -18,22 +17,15 @@ async function getGmailAccessToken() {
   ).then((r) => r.json());
 
   const settings = data.items?.[0]?.settings;
-  const accessToken =
-    settings?.access_token ||
-    settings?.oauth?.credentials?.access_token;
+  const accessToken = settings?.access_token || settings?.oauth?.credentials?.access_token;
+  if (!accessToken) throw new Error("No access_token");
 
-  if (!accessToken) throw new Error("Gmail not connected");
-  return accessToken;
-}
-
-async function sendGmail({ to, subject, html }) {
-  const accessToken = await getGmailAccessToken();
   const oauth2Client = new google.auth.OAuth2();
   oauth2Client.setCredentials({ access_token: accessToken });
   const gmail = google.gmail({ version: "v1", auth: oauth2Client });
 
   const boundary = "boundary_sunglim";
-  const messageParts = [
+  const parts = [
     `To: ${to}`,
     `Subject: =?UTF-8?B?${Buffer.from(subject).toString("base64")}?=`,
     "MIME-Version: 1.0",
@@ -47,13 +39,32 @@ async function sendGmail({ to, subject, html }) {
     `--${boundary}--`,
   ];
 
-  const raw = Buffer.from(messageParts.join("\r\n"))
+  const raw = Buffer.from(parts.join("\r\n"))
     .toString("base64")
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
     .replace(/=+$/, "");
 
   await gmail.users.messages.send({ userId: "me", requestBody: { raw } });
+}
+
+async function sendViaGmailSMTP({ to, subject, html }) {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASS) {
+    throw new Error("GMAIL_USER / GMAIL_APP_PASS not set");
+  }
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_APP_PASS,
+    },
+  });
+  await transporter.sendMail({
+    from: process.env.GMAIL_USER,
+    to,
+    subject,
+    html,
+  });
 }
 
 export default async function handler(req, res) {
@@ -83,13 +94,21 @@ export default async function handler(req, res) {
 </table>
 `;
 
+  const mailOpts = {
+    to: "7661496@naver.com",
+    subject: `[성림교구 문의] ${subject} - ${name}`,
+    html: htmlBody,
+  };
+
   try {
-    await sendGmail({
-      to: "7661496@naver.com",
-      subject: `[성림교구 문의] ${subject} - ${name}`,
-      html: htmlBody,
-    });
-    console.log("[문의접수 완료]", { name, phone, subject, receivedAt });
+    try {
+      await sendViaGmailConnector(mailOpts);
+      console.log("[문의접수 - 커넥터]", { name, phone, subject });
+    } catch (connErr) {
+      console.log("[커넥터 불가, SMTP 시도]", connErr.message);
+      await sendViaGmailSMTP(mailOpts);
+      console.log("[문의접수 - SMTP]", { name, phone, subject });
+    }
     return res.status(201).json({ message: "문의가 성공적으로 접수되었습니다." });
   } catch (err) {
     console.error("[메일 발송 실패]", err.message);

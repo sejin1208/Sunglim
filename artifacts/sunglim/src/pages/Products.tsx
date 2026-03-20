@@ -138,11 +138,8 @@ export default function Products() {
                       {'g2b' in product && product.g2b && (
                         <p className="text-xs text-muted-foreground">G2B: {product.g2b}</p>
                       )}
-                      <div className="flex items-center justify-between mt-4">
+                      <div className="mt-4">
                         <span className="text-primary font-bold">{product.price}</span>
-                        <button className="text-sm font-semibold text-primary hover:text-blue-700 bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-lg transition-colors">
-                          문의하기
-                        </button>
                       </div>
                     </div>
                   </motion.div>
