@@ -28,6 +28,8 @@ const DELIVERY_CASES: DeliveryCase[] = [
   { id: 50, schoolName: "의정부신곡초등학교", deliveryDate: "2026-03-04", modelNames: "SLD-0725,SLC-0604",     imageUrl: "/images/delivery/의정부신곡초등학교_20260304.jpg" },
   { id: 49, schoolName: "수주중학교",        deliveryDate: "2026-03-04", modelNames: "SLD-0725,SLC-0604",      imageUrl: "/images/delivery/수주중학교_20260304.jpg" },
   { id: 48, schoolName: "부곡여자중학교",    deliveryDate: "2026-02-25", modelNames: "SLD-0757,SLC-0657",      imageUrl: "/images/delivery/부곡여자중학교_20260225.jpg" },
+  { id: 53, schoolName: "천마중학교",        deliveryDate: "2026-02-24", modelNames: "SLD-0773C,SLC-0656",     imageUrl: "/images/delivery/천마중학교_20260224.jpg" },
+  { id: 52, schoolName: "이천마장중학교",    deliveryDate: "2026-02-23", modelNames: "SLD-0725,SLC-0657",      imageUrl: "/images/delivery/이천마장중학교_20260223.jpg" },
   { id: 37, schoolName: "인천윤슬초등학교",  deliveryDate: "2026-02-21", modelNames: "SLD-0773,SLC-1657",      imageUrl: "/images/delivery/인천윤슬초등학교_20260221.jpg" },
   { id: 36, schoolName: "용인솔빛초등학교", deliveryDate: "2026-02-20", modelNames: "SLD-0773C,SLC-0657",     imageUrl: "/images/delivery/용인솔빛초등학교_20260220.jpg" },
   { id: 35, schoolName: "다율초등학교",      deliveryDate: "2026-02-20", modelNames: "SLD-0714,SLC-0656",      imageUrl: "/images/delivery/다율초등학교_20260220.jpg" },
