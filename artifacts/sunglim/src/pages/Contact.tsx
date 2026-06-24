@@ -113,7 +113,7 @@ export default function Contact() {
                       className="block w-full mt-4 rounded-xl overflow-hidden border border-border hover:opacity-90 transition-opacity group relative"
                     >
                       <img
-                        src={`${import.meta.env.BASE_URL}images/maps/map_factory2.jpg`}
+                        src={`${import.meta.env.BASE_URL}images/maps/map_factory3.jpg`}
                         alt="공장 위치 지도"
                         className="w-full h-52 object-cover"
                       />
