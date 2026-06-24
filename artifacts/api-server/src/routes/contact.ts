@@ -2,9 +2,37 @@ import { Router, type IRouter } from "express";
 import { db, contactsTable } from "@workspace/db";
 import { SubmitContactBody, ListContactsResponseItem } from "@workspace/api-zod";
 import { desc } from "drizzle-orm";
-import { sendEmail } from "../gmail-client.js";
 
 const router: IRouter = Router();
+
+async function sendViaWeb3Forms(opts: {
+  name: string; company: string; phone: string; email: string;
+  subject: string; message: string; receivedAt: string;
+}) {
+  const apiKey = process.env.WEB3FORMS_KEY;
+  if (!apiKey) throw new Error("WEB3FORMS_KEY 미설정");
+
+  const response = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      access_key: apiKey,
+      subject: `[성림교구 문의] ${opts.subject} - ${opts.name}`,
+      from_name: "성림교구 홈페이지",
+      이름: opts.name,
+      "회사/학교": opts.company,
+      연락처: opts.phone,
+      이메일: opts.email,
+      문의유형: opts.subject,
+      내용: opts.message,
+      접수일시: opts.receivedAt,
+    }),
+  });
+
+  const result = await response.json();
+  if (!result.success) throw new Error(JSON.stringify(result));
+  return result;
+}
 
 router.post("/contact", async (req, res) => {
   try {
@@ -18,28 +46,19 @@ router.post("/contact", async (req, res) => {
       message: body.message,
     }).returning();
 
-    // Gmail로 이메일 발송 (Replit Google Mail 커넥터 사용)
-    const emailText = [
-      `[온라인 문의 접수]`,
-      ``,
-      `이름/담당자: ${body.name}`,
-      `기관/회사명: ${body.company ?? "-"}`,
-      `연락처: ${body.phone}`,
-      `이메일: ${body.email ?? "-"}`,
-      `제목: ${body.subject}`,
-      ``,
-      `문의 내용:`,
-      body.message,
-      ``,
-      `접수 번호: ${inserted.id}`,
-      `접수 일시: ${new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}`,
-    ].join("\n");
+    const receivedAt = new Date().toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
 
-    await sendEmail({
-      to: "7661496@naver.com",
-      subject: `[문의접수] ${body.subject} - ${body.name}`,
-      text: emailText,
-    }).catch((err) => console.error("Email send error:", err));
+    sendViaWeb3Forms({
+      name: body.name,
+      company: body.company ?? "-",
+      phone: body.phone,
+      email: body.email ?? "-",
+      subject: body.subject,
+      message: body.message,
+      receivedAt,
+    })
+      .then(() => console.log("[문의접수 완료]", { name: body.name, id: inserted.id }))
+      .catch((err) => console.error("[Web3Forms 오류]", err.message));
 
     res.status(201).json({ id: inserted.id, message: "문의가 성공적으로 접수되었습니다." });
   } catch (error) {
