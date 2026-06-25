@@ -41,11 +41,12 @@ export default function Home() {
         {/* Background Image & Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src={`${import.meta.env.BASE_URL}images/hero-bg.png`} 
+            src={`${import.meta.env.BASE_URL}images/classroom.png`} 
             alt="Sunglim Edu Hero" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/92 via-background/75 to-background/30" />
+          <div className="absolute inset-0 bg-primary/10" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
