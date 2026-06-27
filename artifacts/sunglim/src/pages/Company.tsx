@@ -143,9 +143,9 @@ export default function Company() {
                 desc: "한국산업표준 인증"
               },
               {
-                img: `${import.meta.env.BASE_URL}images/certs/pps-mark.svg`,
+                img: `${import.meta.env.BASE_URL}images/certs/pps-mark.png`,
                 label: "조달청 등록",
-                desc: "조달청 우수제품 등록"
+                desc: "조달청 제품 등록"
               },
               {
                 img: `${import.meta.env.BASE_URL}images/certs/eco-mark.jpg`,

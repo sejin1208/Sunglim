@@ -54,7 +54,7 @@ export default function Products() {
 
   return (
     <Layout>
-      <div className="bg-secondary/30 pt-20 pb-20 border-b border-border">
+      <div className="bg-secondary/30 pt-12 pb-12 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             제품소개

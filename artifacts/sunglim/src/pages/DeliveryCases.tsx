@@ -104,7 +104,7 @@ export default function DeliveryCases() {
 
   return (
     <Layout>
-      <div className="bg-secondary/30 pt-20 pb-20 border-b border-border">
+      <div className="bg-secondary/30 pt-12 pb-12 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">납품사례</h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
