@@ -148,7 +148,7 @@ export default function Company() {
                 desc: "조달청 제품 등록"
               },
               {
-                img: `${import.meta.env.BASE_URL}images/certs/eco-mark.jpg`,
+                img: `${import.meta.env.BASE_URL}images/certs/eco-mark.png`,
                 label: "환경표지인증",
                 desc: "친환경 제품 인증"
               },
