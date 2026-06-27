@@ -24,12 +24,12 @@ export default function Company() {
   return (
     <Layout>
       {/* Page Header */}
-      <div className="bg-secondary/30 pt-20 pb-24 border-b border-border">
+      <div className="bg-secondary/30 pt-12 pb-12 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
+            className="text-4xl md:text-5xl font-bold mb-3 text-foreground"
           >
             회사소개
           </motion.h1>
@@ -127,6 +127,59 @@ export default function Company() {
         </div>
       </section>
 
+      {/* Certifications */}
+      <section className="py-16 bg-secondary/20 border-t border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-3">인증 및 특허</h2>
+            <p className="text-muted-foreground">성림교구가 보유한 공식 인증과 특허입니다.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              {
+                img: `${import.meta.env.BASE_URL}images/certs/ks-mark.png`,
+                label: "KS 인증",
+                desc: "한국산업표준 인증"
+              },
+              {
+                img: `${import.meta.env.BASE_URL}images/certs/pps-mark.svg`,
+                label: "조달청 등록",
+                desc: "조달청 우수제품 등록"
+              },
+              {
+                img: `${import.meta.env.BASE_URL}images/certs/eco-mark.jpg`,
+                label: "환경표지인증",
+                desc: "친환경 제품 인증"
+              },
+              {
+                img: `${import.meta.env.BASE_URL}images/certs/kipo-mark.png`,
+                label: "특허 보유",
+                desc: "한국특허청 등록 특허"
+              },
+            ].map((cert, idx) => (
+              <motion.div
+                key={cert.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="bg-card rounded-2xl border border-border p-6 flex flex-col items-center text-center shadow-sm hover:shadow-hover hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="h-20 flex items-center justify-center mb-4">
+                  <img
+                    src={cert.img}
+                    alt={cert.label}
+                    className="max-h-20 max-w-[140px] object-contain"
+                  />
+                </div>
+                <p className="font-bold text-sm text-foreground">{cert.label}</p>
+                <p className="text-xs text-muted-foreground mt-1">{cert.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
     </Layout>
   );
 }
