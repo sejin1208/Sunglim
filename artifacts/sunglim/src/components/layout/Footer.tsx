@@ -28,6 +28,7 @@ export function Footer() {
               <li><Link href="/" className="hover:text-white transition-colors">홈</Link></li>
               <li><Link href="/company" className="hover:text-white transition-colors">회사소개</Link></li>
               <li><Link href="/products" className="hover:text-white transition-colors">제품소개</Link></li>
+              <li><Link href="/delivery" className="hover:text-white transition-colors">납품사례</Link></li>
               <li><Link href="/contact" className="hover:text-white transition-colors">고객센터</Link></li>
             </ul>
           </div>
