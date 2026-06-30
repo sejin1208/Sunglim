@@ -1,8 +1,14 @@
 import { Layout } from "@/components/layout/Layout";
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Users, Target } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Company() {
+  useSEO({
+    title: "회사소개 | 학교 책걸상 전문기업 (주)성림교구 - SINCE 2000",
+    description: "2000년 설립. 전국 초·중·고등학교 학교 책걸상 납품 전문 기업 (주)성림교구. KS인증·환경표지인증·조달청 등록·특허 보유. 대표이사 류성훈.",
+    canonical: "https://www.sunglim.co.kr/company",
+  });
   const values = [
     {
       icon: ShieldCheck,

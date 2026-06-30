@@ -2,8 +2,14 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, PenTool, Dumbbell } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
+import { useSEO } from "@/hooks/useSEO";
 
 export default function Home() {
+  useSEO({
+    title: "학교 책걸상 전문 (주)성림교구 | 학교 책상·걸상·학생용 책걸상 납품",
+    description: "학교 책상, 학교 걸상, 학생용 책걸상 전문 기업 (주)성림교구. KS인증·친환경인증·조달청 등록. 전국 초·중·고등학교 납품 실적. 높낮이조절형 친환경 학교 가구. TEL 02-766-1496",
+    canonical: "https://www.sunglim.co.kr/",
+  });
   const categories = [
     {
       title: "학생용책상",

@@ -3,6 +3,7 @@ import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search } from "lucide-react";
 import { useSearch } from "wouter";
+import { useSEO } from "@/hooks/useSEO";
 
 // Mock Product Data
 const MOCK_PRODUCTS = [
@@ -37,6 +38,11 @@ const CATEGORIES = [
 ];
 
 export default function Products() {
+  useSEO({
+    title: "제품소개 | 학교 책상·걸상·스탠딩책상 - (주)성림교구",
+    description: "높낮이조절형 학교 책상, 학교 걸상, 스탠딩책상 전 제품 라인업. KS인증·친환경인증·조달청 등록 제품. 학생용 책걸상 42,000원~85,000원 (VAT별도). (주)성림교구",
+    canonical: "https://www.sunglim.co.kr/products",
+  });
   const search = useSearch();
   const urlCategory = new URLSearchParams(search).get("category") ?? "all";
   const [activeCategory, setActiveCategory] = useState(urlCategory);

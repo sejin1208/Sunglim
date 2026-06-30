@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { MapPin, Phone, Clock, Send } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -19,6 +20,11 @@ const contactSchema = z.object({
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function Contact() {
+  useSEO({
+    title: "고객센터·오시는 길 | (주)성림교구 - 학교 책걸상 문의",
+    description: "학교 책상·걸상 견적 및 문의. TEL 02-766-1496. 본사: 경기도 의정부시 오목로225번길 105. 학교 책걸상 납품 상담 환영.",
+    canonical: "https://www.sunglim.co.kr/contact",
+  });
   const { toast } = useToast();
   const [isPending, setIsPending] = useState(false);
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building2, CalendarDays, Package, Search } from "lucide-react";
+import { useSEO } from "@/hooks/useSEO";
 
 interface DeliveryCase {
   id: number;
@@ -95,6 +96,11 @@ function modelLabel(model: string): string {
 }
 
 export default function DeliveryCases() {
+  useSEO({
+    title: "납품사례 | 전국 학교 책걸상 납품 실적 - (주)성림교구",
+    description: "전국 초·중·고등학교 학교 책상·걸상 납품 실적. 74개교 이상 납품 완료. 성림교구의 학교 가구 납품 현장을 확인하세요.",
+    canonical: "https://www.sunglim.co.kr/delivery",
+  });
   const [searchQuery, setSearchQuery] = useState("");
 
   const filtered = DELIVERY_CASES.filter(
