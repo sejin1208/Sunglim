@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
-import { ArrowRight, BookOpen, PenTool, Dumbbell } from "lucide-react";
+import { ArrowRight, BookOpen, PenTool, Dumbbell, ClipboardCheck } from "lucide-react";
 import { Layout } from "@/components/layout/Layout";
 import { useSEO } from "@/hooks/useSEO";
 
@@ -36,6 +36,15 @@ export default function Home() {
       color: "bg-orange-50 text-orange-600",
       link: "/products?category=sports",
       image: `${import.meta.env.BASE_URL}images/height-desk.jpg`,
+      featured: true,
+    },
+    {
+      title: "감독용걸상",
+      description: "수능 시험 감독을 위한 편안하고 안정적인 걸상",
+      icon: ClipboardCheck,
+      color: "bg-violet-50 text-violet-600",
+      link: "/products?category=supervision",
+      image: "",
       featured: true,
     },
   ];
@@ -126,13 +135,19 @@ export default function Home() {
                       ? "bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/10"
                       : "bg-black/20 group-hover:bg-transparent"
                   }`} />
-                  <img 
-                    src={cat.image} 
-                    alt={cat.title} 
-                    className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
-                      cat.featured ? "object-contain bg-gray-50 p-4" : "object-contain bg-gray-50 p-3"
-                    }`}
-                  />
+                  {cat.image ? (
+                    <img 
+                      src={cat.image} 
+                      alt={cat.title} 
+                      className={`w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 ${
+                        cat.featured ? "object-contain bg-gray-50 p-4" : "object-contain bg-gray-50 p-3"
+                      }`}
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gray-50 text-sm font-medium text-muted-foreground">
+                      사진 준비 중
+                    </div>
+                  )}
                 </div>
                 <div className={`p-8 ${cat.featured ? "bg-gradient-to-b from-card to-primary/5" : ""}`}>
                   <div className={`w-12 h-12 rounded-2xl ${cat.color} flex items-center justify-center mb-6 -mt-14 relative z-20 shadow-lg border-4 border-card`}>

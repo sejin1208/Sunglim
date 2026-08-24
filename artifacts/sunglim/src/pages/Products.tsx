@@ -25,19 +25,19 @@ const MOCK_PRODUCTS = [
   { id: 23, name: "친환경 높낮이조절형 중고등생 사출 걸상", category: "stationery", price: "44,000원", image: "SLC-06567.jpg", model: "SLC-06567", specs: "435×420×420~500mm", g2b: "25165450" },
   { id: 24, name: "친환경 높낮이조절형 사출 걸상", category: "stationery", price: "42,000원", image: "SLC-0656.jpg", model: "SLC-0656", specs: "435×420×340~460mm", g2b: "25165451" },
   { id: 20, name: "친환경 높낮이조절형 팔걸이 걸상", category: "stationery", price: "50,500원", image: "SLC-06587.jpg", model: "SLC-06587", specs: "435×420×420~500mm", g2b: "25560953" },
-  // 감독용걸상
-  { id: 32, name: "수능 감독용 걸상", category: "supervision", price: "78,000원", image: "", model: "SLC-801", specs: "430×420×800mm" },
   // 스탠딩책상
   { id: 30, name: "친환경 높낮이조절형 스탠딩책상", category: "sports", price: "85,000원", image: "SLD-2712-A.jpg", model: "SLD-2712-A", specs: "650×450×940~1120mm", g2b: "25166812" },
   { id: 31, name: "친환경 스탠딩책상", category: "sports", price: "77,000원", image: "SLD-2413-A.jpg", model: "SLD-2413-A", specs: "650×450×1050mm", g2b: "25166811" },
+  // 감독용걸상
+  { id: 32, name: "수능 감독용 걸상", category: "supervision", price: "78,000원", image: "", model: "SLC-801", specs: "430×420×800mm" },
 ];
 
 const CATEGORIES = [
   { id: "all", name: "전체보기" },
   { id: "teaching", name: "학생용책상" },
   { id: "stationery", name: "교실용걸상" },
-  { id: "supervision", name: "감독용걸상" },
   { id: "sports", name: "스탠딩책상" },
+  { id: "supervision", name: "감독용걸상" },
 ];
 
 export default function Products() {
