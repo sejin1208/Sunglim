@@ -15,6 +15,9 @@ interface DeliveryCase {
 
 const DELIVERY_CASES: DeliveryCase[] = [
   // 최신순
+  { id: 95, schoolName: "지산고등학교",          deliveryDate: "2026-08-24", modelNames: "SLD-17577,SLC-16597",     imageUrl: "/images/delivery/지산고등학교_20260824.jpg" },
+  { id: 94, schoolName: "기흥중학교",            deliveryDate: "2026-08-20", modelNames: "SLD-17127-B,SLC-16577",   imageUrl: "/images/delivery/기흥중학교_20260820.jpg" },
+  { id: 93, schoolName: "남양주장승초등학교",     deliveryDate: "2026-08-20", modelNames: "SLD-0773,SLC-0656",       imageUrl: "/images/delivery/남양주장승초등학교_20260820.jpg" },
   { id: 92, schoolName: "부산진여자고등학교",   deliveryDate: "2026-08-12", modelNames: "SLD-17577,SLC-16577D",   imageUrl: "/images/delivery/부산진여자고등학교_20260812.jpg" },
   { id: 91, schoolName: "성동공업고등학교",   deliveryDate: "2026-08-07", modelNames: "SLD-07737,SLC-06567",    imageUrl: "/images/delivery/성동공업고등학교_20260807.jpg" },
   { id: 90, schoolName: "온천중학교",          deliveryDate: "2026-08-11", modelNames: "SLD-0757,SLC-0656",      imageUrl: "/images/delivery/온천중학교_20260811.jpg" },
