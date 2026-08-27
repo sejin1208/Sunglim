@@ -170,35 +170,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick About CTA */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
-        {/* Decorative background shapes */}
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-white/5 blur-3xl" />
-        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-            <div className="lg:w-2/3">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                수십 년간 축적된 노하우로<br />
-                최고의 파트너가 되겠습니다.
-              </h2>
-              <p className="text-primary-foreground/80 text-lg max-w-2xl">
-                전국 초,중,고등 학교 납품 실적을 보유한 (주)성림교구입니다. 
-                단순한 판매를 넘어 교육 환경의 개선을 위해 함께 고민합니다.
-              </p>
-            </div>
-            <div className="lg:w-1/3 flex justify-start lg:justify-end">
-              <Link 
-                href="/company"
-                className="px-8 py-4 rounded-xl font-bold bg-white text-primary shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-              >
-                회사소개 보기
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </Layout>
   );
 }
