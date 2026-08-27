@@ -44,18 +44,30 @@ export function Navbar() {
               href="/" 
               className="flex items-center gap-2 group"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
-                S
+              <div className="relative w-10 h-10 overflow-hidden rounded-[10px] bg-primary flex items-center justify-center text-white font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                <span className="relative z-10">S</span>
+                <span
+                  aria-hidden="true"
+                  className="absolute left-2 right-2 bottom-[7px] h-px rounded-full bg-blue-300/80 transition-colors group-hover:bg-blue-200"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute left-3 bottom-[4px] h-[3px] w-px bg-blue-300/80"
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute right-3 bottom-[4px] h-[3px] w-px bg-blue-300/80"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-black text-xl leading-tight tracking-tight text-primary">
                   성림교구
                 </span>
-                <span
-                  className="text-[10px] text-muted-foreground font-semibold uppercase w-full"
-                  style={{ textAlign: "justify", textAlignLast: "justify" }}
-                >
-                  SUNGLIM
+                <span className="mt-1 flex items-center gap-1.5">
+                  <span aria-hidden="true" className="h-px w-3 rounded-full bg-blue-500/80" />
+                  <span className="text-[10px] text-muted-foreground font-semibold uppercase tracking-[0.18em]">
+                    SUNGLIM
+                  </span>
                 </span>
               </div>
             </Link>
