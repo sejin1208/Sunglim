@@ -9,12 +9,23 @@ export function Footer() {
           {/* Brand Col */}
           <div className="md:col-span-1 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">
-                S
+              <div className="relative w-9 h-9 overflow-hidden rounded-[9px] bg-primary flex items-center justify-center text-white font-bold shadow-sm">
+                <span className="relative z-10">S</span>
+                <span aria-hidden="true" className="absolute left-2 right-2 bottom-[6px] h-px rounded-full bg-blue-300/80" />
+                <span aria-hidden="true" className="absolute left-[11px] bottom-[3px] h-[3px] w-px bg-blue-300/80" />
+                <span aria-hidden="true" className="absolute right-[11px] bottom-[3px] h-[3px] w-px bg-blue-300/80" />
               </div>
-              <span className="font-display font-bold text-xl text-white">
-                성림교구
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="font-display font-bold text-lg text-white">
+                  성림교구
+                </span>
+                <span className="mt-1 flex items-center gap-1.5">
+                  <span aria-hidden="true" className="h-px w-3 rounded-full bg-blue-300/80" />
+                  <span className="text-[9px] text-white/60 font-semibold uppercase tracking-[0.16em]">
+                    SUNGLIM
+                  </span>
+                </span>
+              </div>
             </div>
             <p className="text-sm text-white/60 leading-relaxed">
               최고의 품질과 서비스로 교육 환경의 미래를 만들어갑니다. 성림교구는 언제나 고객의 만족을 최우선으로 생각합니다.
