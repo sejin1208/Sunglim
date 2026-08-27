@@ -44,7 +44,7 @@ export default function Home() {
       icon: ClipboardCheck,
       color: "bg-violet-50 text-violet-600",
       link: "/products?category=supervision",
-      image: "",
+      image: `${import.meta.env.BASE_URL}images/SLC-8.jpg`,
       featured: true,
     },
   ];
