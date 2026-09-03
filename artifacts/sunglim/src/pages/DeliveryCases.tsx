@@ -15,6 +15,7 @@ interface DeliveryCase {
 
 const DELIVERY_CASES: DeliveryCase[] = [
   // 최신순
+  { id: 100, schoolName: "의정부고등학교",      deliveryDate: "2026-08-31", modelNames: "SLC-8",               imageUrl: "/images/delivery/의정부고등학교_20260831.jpg", note: "상우고, 송양고, 송현고, 호원고, 효자고, 부용고, 동대부속영석고, 포천일고, 송우고, 동남고, 포천여중 등 납품" },
   { id: 99, schoolName: "인창초등학교",          deliveryDate: "2026-08-28", modelNames: "SLD-1757,SLC-1657",       imageUrl: "/images/delivery/인창초등학교_20260828.jpg" },
   { id: 98, schoolName: "광릉초등학교",          deliveryDate: "2026-08-26", modelNames: "SLD-1772,SLC-1657",      imageUrl: "/images/delivery/광릉초등학교_20260826.jpg" },
   { id: 97, schoolName: "동성초등학교",          deliveryDate: "2026-08-26", modelNames: "SLD-1772,SLC-1657",      imageUrl: "/images/delivery/동성초등학교_20260826.jpg" },
@@ -115,6 +116,7 @@ const DELIVERY_CASES: DeliveryCase[] = [
 
 function modelLabel(model: string): string {
   const m = model.trim();
+  if (m === "SLC-8") return `수능 감독관용 걸상 ${m}`;
   if (m.startsWith("SLD-")) return `학생용책상 ${m}`;
   if (m.startsWith("SLC-")) return `교실용걸상 ${m}`;
   return m;
