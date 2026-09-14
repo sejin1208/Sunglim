@@ -15,6 +15,10 @@ interface DeliveryCase {
 
 const DELIVERY_CASES: DeliveryCase[] = [
   // 최신순
+  { id: 104, schoolName: "죽향초등학교",       deliveryDate: "2026-09-09", modelNames: "SLD-0714,SLC-0656",      imageUrl: "/images/delivery/죽향초등학교_20260909.jpg" },
+  { id: 103, schoolName: "양정고등학교",       deliveryDate: "2026-09-04", modelNames: "SLD-17577,SLC-16577D",  imageUrl: "/images/delivery/양정고등학교_20260904.jpg" },
+  { id: 102, schoolName: "한별초등학교",       deliveryDate: "2026-09-04", modelNames: "SLD-1712,SLC-1657",     imageUrl: "/images/delivery/한별초등학교_20260904.jpg" },
+  { id: 101, schoolName: "인천윤슬초등학교",   deliveryDate: "2026-09-03", modelNames: "SLD-0773,SLC-1657",     imageUrl: "/images/delivery/인천윤슬초등학교_20260903.jpg" },
   { id: 100, schoolName: "의정부고등학교 외 11개 학교", deliveryDate: "2026-08-31", modelNames: "SLC-8",               imageUrl: "/images/delivery/의정부고등학교_20260831.jpg", note: "상우고, 송양고, 송현고, 호원고, 효자고, 부용고, 동대부속영석고, 포천일고, 송우고, 동남고, 포천여중 등 납품" },
   { id: 99, schoolName: "인창초등학교",          deliveryDate: "2026-08-28", modelNames: "SLD-1757,SLC-1657",       imageUrl: "/images/delivery/인창초등학교_20260828.jpg" },
   { id: 98, schoolName: "광릉초등학교",          deliveryDate: "2026-08-26", modelNames: "SLD-1772,SLC-1657",      imageUrl: "/images/delivery/광릉초등학교_20260826.jpg" },
