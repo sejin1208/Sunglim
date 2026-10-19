@@ -15,6 +15,9 @@ interface DeliveryCase {
 
 const DELIVERY_CASES: DeliveryCase[] = [
   // 최신순
+  { id: 110, schoolName: "이목중학교",          deliveryDate: "2026-10-12", modelNames: "SLD-2413-A",            imageUrl: "/images/delivery/이목중학교_20261012.jpg" },
+  { id: 109, schoolName: "강원외국어고등학교",  deliveryDate: "2026-10-01", modelNames: "SLD-2413-A",            imageUrl: "/images/delivery/강원외국어고등학교_20261001.jpg" },
+  { id: 108, schoolName: "경상북도 영덕군 미래인재양성관", deliveryDate: "2026-09-28", modelNames: "SLD-2712-A", imageUrl: "/images/delivery/미래인재양성관_20260928.jpg" },
   { id: 107, schoolName: "세종과학고등학교",   deliveryDate: "2026-09-28", modelNames: "SLD-0757,SLC-0656",      imageUrl: "/images/delivery/세종과학고등학교_20260928.jpg" },
   { id: 106, schoolName: "학현초등학교",       deliveryDate: "2026-09-19", modelNames: "SLD-1772,SLC-1657",      imageUrl: "/images/delivery/학현초등학교_20260919.jpg" },
   { id: 105, schoolName: "광명고등학교",       deliveryDate: "2026-09-17", modelNames: "SLD-0752,SLC-0656",      imageUrl: "/images/delivery/광명고등학교_20260917.jpg" },
@@ -124,6 +127,7 @@ const DELIVERY_CASES: DeliveryCase[] = [
 function modelLabel(model: string): string {
   const m = model.trim();
   if (m === "SLC-8") return `수능 감독관용 걸상 ${m}`;
+  if (m === "SLD-2712-A" || m === "SLD-2413-A") return `스탠딩책상 ${m}`;
   if (m.startsWith("SLD-")) return `학생용책상 ${m}`;
   if (m.startsWith("SLC-")) return `교실용걸상 ${m}`;
   return m;
