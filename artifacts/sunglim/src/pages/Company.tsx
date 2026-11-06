@@ -110,7 +110,7 @@ export default function Company() {
             <p className="text-muted-foreground">성림교구가 지켜나가는 세 가지 약속입니다.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 md:grid-cols-3 gap-6">
             {values.map((val, idx) => (
               <motion.div
                 key={val.title}
@@ -118,13 +118,13 @@ export default function Company() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className="bg-card p-10 rounded-3xl border border-border shadow-sm text-center hover:shadow-hover hover:-translate-y-1 transition-all duration-300"
+                className="bg-card p-6 rounded-2xl border border-border shadow-sm text-center hover:shadow-hover hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-20 h-20 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-6 text-primary">
-                  <val.icon className="w-10 h-10" />
+                <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4 text-primary">
+                  <val.icon className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold mb-4">{val.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <h3 className="text-base font-bold mb-2">{val.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {val.desc}
                 </p>
               </motion.div>
