@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Video */}
-      <section className="mx-auto aspect-video w-full max-w-[1200px] overflow-hidden bg-black md:aspect-[2/1]" aria-label="성림교구 홍보 영상">
+      <section className="mx-auto aspect-video w-full max-w-[1300px] overflow-hidden bg-black md:aspect-[2/1]" aria-label="성림교구 홍보 영상">
         {shouldPlayHeroVideo ? (
           <video
             autoPlay
