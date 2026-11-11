@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, BookOpen, PenTool, Dumbbell, ClipboardCheck } from "lucide-react";
@@ -5,6 +6,19 @@ import { Layout } from "@/components/layout/Layout";
 import { useSEO } from "@/hooks/useSEO";
 
 export default function Home() {
+  const [shouldPlayHeroVideo, setShouldPlayHeroVideo] = useState(false);
+
+  useEffect(() => {
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: no-preference)");
+    const updateMotionPreference = (event: MediaQueryListEvent) => {
+      setShouldPlayHeroVideo(event.matches);
+    };
+
+    setShouldPlayHeroVideo(motionPreference.matches);
+    motionPreference.addEventListener("change", updateMotionPreference);
+    return () => motionPreference.removeEventListener("change", updateMotionPreference);
+  }, []);
+
   useSEO({
     title: "학교 책걸상 전문 (주)성림교구 | 학교 책상·걸상·학생용 책걸상 납품",
     description: "학교 책상, 학교 걸상, 학생용 책걸상 전문 기업 (주)성림교구. KS인증·친환경인증·조달청 등록. 전국 초·중·고등학교 납품 실적. 높낮이조절형 친환경 학교 가구. TEL 02-766-1496",
@@ -51,54 +65,44 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-        {/* Background Image & Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={`${import.meta.env.BASE_URL}images/classroom-hero.jpg`} 
-            alt="Sunglim Edu Hero" 
-            className="w-full h-full object-cover object-center"
+      {/* Hero Video */}
+      <section className="w-full aspect-video overflow-hidden bg-black" aria-label="성림교구 홍보 영상">
+        {shouldPlayHeroVideo ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            poster={`${import.meta.env.BASE_URL}images/classroom-hero.jpg`}
+            className="block h-full w-full object-contain"
+          >
+            <source src={`${import.meta.env.BASE_URL}videos/sunglim-promo.mp4`} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            src={`${import.meta.env.BASE_URL}images/classroom-hero.jpg`}
+            alt="성림교구 홍보 영상"
+            className="block h-full w-full object-contain"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/92 via-background/75 to-background/30" />
-          <div className="absolute inset-0 bg-primary/10" />
-        </div>
+        )}
+      </section>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-          <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary font-bold text-sm tracking-wider mb-6">
-                SINCE 2000
-              </span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-                미래를 키우는<br />
-                <span className="text-gradient">바른 교육 환경</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10 max-w-2xl">
-                전국 초, 중, 고등학교에서 필요한 학생용책걸상을 최고의 품질로 공급하며 대한민국의 교육환경 발전과 함께 성장해왔습니다. 모든 제품은 E0등급 이상의 친환경 자재만을 사용하는 친환경 기업입니다.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Link 
-                  href="/products"
-                  className="px-8 py-4 rounded-xl font-bold bg-primary text-primary-foreground shadow-lg shadow-primary/25 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
-                >
-                  제품 둘러보기
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link 
-                  href="/contact"
-                  className="px-8 py-4 rounded-xl font-bold bg-white text-foreground border border-border shadow-sm hover:border-primary hover:text-primary hover:-translate-y-1 transition-all duration-300"
-                >
-                  견적 문의하기
-                </Link>
-              </div>
-            </motion.div>
-          </div>
+      <section className="bg-background py-8">
+        <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-4 px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/products"
+            className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            제품 둘러보기
+            <ArrowRight className="h-5 w-5" />
+          </Link>
+          <Link
+            href="/contact"
+            className="rounded-xl border border-border bg-white px-8 py-4 font-bold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary"
+          >
+            견적 문의하기
+          </Link>
         </div>
       </section>
 
