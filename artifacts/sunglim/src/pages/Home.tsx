@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Video */}
-      <section className="mx-auto aspect-video w-full max-w-6xl overflow-hidden bg-black" aria-label="성림교구 홍보 영상">
+      <section className="mx-auto aspect-video w-full max-w-[1200px] overflow-hidden bg-black md:aspect-[2/1]" aria-label="성림교구 홍보 영상">
         {shouldPlayHeroVideo ? (
           <video
             autoPlay
@@ -75,7 +75,7 @@ export default function Home() {
             playsInline
             preload="metadata"
             poster={`${import.meta.env.BASE_URL}images/classroom-hero.jpg`}
-            className="block h-full w-full object-contain"
+            className="block h-full w-full object-contain md:object-cover"
           >
             <source src={`${import.meta.env.BASE_URL}videos/sunglim-promo.mp4`} type="video/mp4" />
           </video>
@@ -83,7 +83,7 @@ export default function Home() {
           <img
             src={`${import.meta.env.BASE_URL}images/classroom-hero.jpg`}
             alt="성림교구 홍보 영상"
-            className="block h-full w-full object-contain"
+            className="block h-full w-full object-contain md:object-cover"
           />
         )}
       </section>
@@ -99,7 +99,7 @@ export default function Home() {
           </Link>
           <Link
             href="/contact"
-            className="min-w-0 flex-1 whitespace-nowrap rounded-xl border border-border bg-white px-2 py-3 text-xs font-bold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary sm:flex-none sm:px-8 sm:py-4 sm:text-base"
+            className="flex min-w-0 flex-1 items-center justify-center whitespace-nowrap rounded-xl border border-border bg-white px-2 py-3 text-center text-xs font-bold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary sm:flex-none sm:px-8 sm:py-4 sm:text-base"
           >
             견적 문의하기
           </Link>
