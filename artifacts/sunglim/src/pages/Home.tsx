@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Hero Video */}
-      <section className="w-full aspect-video overflow-hidden bg-black" aria-label="성림교구 홍보 영상">
+      <section className="mx-auto aspect-video w-full max-w-6xl overflow-hidden bg-black" aria-label="성림교구 홍보 영상">
         {shouldPlayHeroVideo ? (
           <video
             autoPlay
@@ -88,18 +88,18 @@ export default function Home() {
         )}
       </section>
 
-      <section className="bg-background py-8">
-        <div className="mx-auto flex max-w-7xl flex-wrap justify-center gap-4 px-4 sm:px-6 lg:px-8">
+      <section className="bg-background py-4 sm:py-6">
+        <div className="mx-auto flex max-w-7xl flex-nowrap justify-center gap-3 px-4 sm:px-6 lg:px-8">
           <Link
             href="/products"
-            className="flex items-center gap-2 rounded-xl bg-primary px-8 py-4 font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            className="flex min-w-0 flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-xl bg-primary px-2 py-3 text-xs font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:flex-none sm:gap-2 sm:px-8 sm:py-4 sm:text-base"
           >
             제품 둘러보기
             <ArrowRight className="h-5 w-5" />
           </Link>
           <Link
             href="/contact"
-            className="rounded-xl border border-border bg-white px-8 py-4 font-bold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary"
+            className="min-w-0 flex-1 whitespace-nowrap rounded-xl border border-border bg-white px-2 py-3 text-xs font-bold text-foreground shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:text-primary sm:flex-none sm:px-8 sm:py-4 sm:text-base"
           >
             견적 문의하기
           </Link>
@@ -107,9 +107,9 @@ export default function Home() {
       </section>
 
       {/* Feature Categories */}
-      <section className="py-24 bg-background">
+      <section className="bg-background py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">주요 취급 품목</h2>
             <p className="text-muted-foreground text-lg"></p>
           </div>
