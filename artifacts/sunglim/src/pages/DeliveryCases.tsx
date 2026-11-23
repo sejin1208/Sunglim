@@ -15,6 +15,12 @@ interface DeliveryCase {
 
 const DELIVERY_CASES: DeliveryCase[] = [
   // 최신순
+  { id: 125, schoolName: "초당중학교",         deliveryDate: "2026-11-21", modelNames: "SLD-17727,SLC-16597",   imageUrl: "/images/delivery/초당중학교_20261121.jpg" },
+  { id: 124, schoolName: "사직여자고등학교",   deliveryDate: "2026-11-21", modelNames: "SLD-17577-B,SLC-16577", imageUrl: "/images/delivery/사직여자고등학교_20261121.jpg" },
+  { id: 123, schoolName: "신라중학교",         deliveryDate: "2026-11-20", modelNames: "SLD-17577,SLC-16577D", imageUrl: "/images/delivery/신라중학교_20261120.jpg" },
+  { id: 122, schoolName: "거제여자중학교",     deliveryDate: "2026-11-20", modelNames: "SLD-0757,SLC-0656",    imageUrl: "/images/delivery/거제여자중학교_20261120.jpg" },
+  { id: 121, schoolName: "송우중학교",         deliveryDate: "2026-11-19", modelNames: "SLD-17127-B,SLC-16577", imageUrl: "/images/delivery/송우중학교_20261119.jpg" },
+  { id: 120, schoolName: "신원중학교",         deliveryDate: "2026-11-18", modelNames: "SLD-17577,SLC-16577",  imageUrl: "/images/delivery/신원중학교_20261118.jpg" },
   { id: 119, schoolName: "가림초등학교",       deliveryDate: "2026-11-09", modelNames: "SLD-1772,SLC-1657",     imageUrl: "/images/delivery/가림초등학교_20261109.jpg" },
   { id: 118, schoolName: "전의초등학교",       deliveryDate: "2026-11-03", modelNames: "SLD-0773,SLC-1657",     imageUrl: "/images/delivery/전의초등학교_20261103.jpg" },
   { id: 117, schoolName: "장승중학교",         deliveryDate: "2026-10-27", modelNames: "SLD-17127,SLC-16577",   imageUrl: "/images/delivery/장승중학교_20261027.jpg" },
