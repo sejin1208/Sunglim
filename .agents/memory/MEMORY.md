@@ -1,0 +1,1 @@
+- [Dependency remediation](dependency-remediation.md) — successful pnpm automatic fixes can leave catalog-pinned vulnerable versions; verify resolved versions and preserve release-age protection.

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "NODE_ENV=development tsx ./src/index.ts",
     "build": "tsx ./build.ts",
+    "test": "tsx --test tests/*.test.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
@@ -18,16 +19,16 @@
     "drizzle-orm": "catalog:",
     "express": "^5",
     "googleapis": "148.0.0",
-    "multer": "^2.1.1",
-    "nodemailer": "^8.0.2",
-    "sharp": "^0.34.5"
+    "multer": "^2.5.0",
+    "nodemailer": "^10.6.1",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "catalog:",
-    "esbuild": "^0.27.3",
+    "esbuild": "^0.28.2",
     "tsx": "catalog:"
   }
 }

@@ -51,7 +51,8 @@ router.post("/delivery-cases", upload.single("image"), async (req, res) => {
   try {
     const { schoolName, deliveryDate, modelNames, note } = req.body;
     if (!schoolName || !deliveryDate || !modelNames) {
-      return res.status(400).json({ error: "학교명, 납품일자, 모델명은 필수입니다." });
+      res.status(400).json({ error: "학교명, 납품일자, 모델명은 필수입니다." });
+      return;
     }
     let imageUrl: string | null = null;
     if (req.file) {
@@ -78,7 +79,10 @@ router.delete("/delivery-cases/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     const [deleted] = await db.delete(deliveryCasesTable).where(eq(deliveryCasesTable.id, id)).returning();
-    if (!deleted) return res.status(404).json({ error: "찾을 수 없습니다." });
+    if (!deleted) {
+      res.status(404).json({ error: "찾을 수 없습니다." });
+      return;
+    }
     if (deleted.imageUrl) {
       const filePath = path.resolve(process.cwd(), "../sunglim/public" + deleted.imageUrl);
       if (fs.existsSync(filePath)) fs.unlinkSync(filePath);

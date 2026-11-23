@@ -21,7 +21,14 @@ async function getAccessToken(): Promise<string> {
   const data = await fetch(
     "https://" + hostname + "/api/v2/connection?include_secrets=true&connector_names=google-mail",
     { headers: { Accept: "application/json", "X-Replit-Token": xReplitToken } }
-  ).then((r) => r.json());
+  ).then((r) => r.json()) as {
+    items?: Array<{
+      settings?: {
+        access_token?: string;
+        oauth?: { credentials?: { access_token?: string } };
+      };
+    }>;
+  };
 
   const settings = data.items?.[0]?.settings;
   const accessToken =
